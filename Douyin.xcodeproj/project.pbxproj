@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C001330059D7BB637B98C63 /* libPods-Douyin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F497C581F3C15AE79C7AE5 /* libPods-Douyin.a */; };
 		AB21FB9E227FEA970096A59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FB9D227FEA970096A59E /* AppDelegate.m */; };
 		AB21FBA1227FEA970096A59E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FBA0227FEA970096A59E /* ViewController.m */; };
 		AB21FBA4227FEA970096A59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB21FBA2227FEA970096A59E /* Main.storyboard */; };
@@ -15,6 +16,12 @@
 		AB21FBAC227FEA990096A59E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FBAB227FEA990096A59E /* main.m */; };
 		AB21FBB6227FEA990096A59E /* DouyinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FBB5227FEA990096A59E /* DouyinTests.m */; };
 		AB21FBC1227FEA990096A59E /* DouyinUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FBC0227FEA990096A59E /* DouyinUITests.m */; };
+		AB51EFF722804CAE0028C531 /* DYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFF622804CAE0028C531 /* DYBaseViewController.m */; };
+		AB51EFFA22804CC50028C531 /* DYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFF922804CC50028C531 /* DYHomeViewController.m */; };
+		AB51EFFD22804CD20028C531 /* DYFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFFC22804CD20028C531 /* DYFollowViewController.m */; };
+		AB51F00022804CEC0028C531 /* DYChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFFF22804CEC0028C531 /* DYChatListViewController.m */; };
+		AB51F00322804D060028C531 /* DYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51F00222804D060028C531 /* DYMineViewController.m */; };
+		AB51F00622804D500028C531 /* DYTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51F00522804D500028C531 /* DYTabBarControllerConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C578DEEA41216C3E0BD268B /* Pods-Douyin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douyin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Douyin/Pods-Douyin.debug.xcconfig"; sourceTree = "<group>"; };
+		7F9405A60D0F91FDDA859550 /* Pods-Douyin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douyin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Douyin/Pods-Douyin.release.xcconfig"; sourceTree = "<group>"; };
 		AB21FB99227FEA970096A59E /* Douyin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Douyin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB21FB9C227FEA970096A59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AB21FB9D227FEA970096A59E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +60,20 @@
 		AB21FBBC227FEA990096A59E /* DouyinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DouyinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB21FBC0227FEA990096A59E /* DouyinUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouyinUITests.m; sourceTree = "<group>"; };
 		AB21FBC2227FEA990096A59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB21FBD0227FECDD0096A59E /* DYPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYPrefixHeader.pch; sourceTree = "<group>"; };
+		AB51EFF522804CAE0028C531 /* DYBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYBaseViewController.h; sourceTree = "<group>"; };
+		AB51EFF622804CAE0028C531 /* DYBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYBaseViewController.m; sourceTree = "<group>"; };
+		AB51EFF822804CC50028C531 /* DYHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHomeViewController.h; sourceTree = "<group>"; };
+		AB51EFF922804CC50028C531 /* DYHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHomeViewController.m; sourceTree = "<group>"; };
+		AB51EFFB22804CD20028C531 /* DYFollowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYFollowViewController.h; sourceTree = "<group>"; };
+		AB51EFFC22804CD20028C531 /* DYFollowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYFollowViewController.m; sourceTree = "<group>"; };
+		AB51EFFE22804CEC0028C531 /* DYChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYChatListViewController.h; sourceTree = "<group>"; };
+		AB51EFFF22804CEC0028C531 /* DYChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYChatListViewController.m; sourceTree = "<group>"; };
+		AB51F00122804D060028C531 /* DYMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMineViewController.h; sourceTree = "<group>"; };
+		AB51F00222804D060028C531 /* DYMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMineViewController.m; sourceTree = "<group>"; };
+		AB51F00422804D500028C531 /* DYTabBarControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYTabBarControllerConfig.h; sourceTree = "<group>"; };
+		AB51F00522804D500028C531 /* DYTabBarControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYTabBarControllerConfig.m; sourceTree = "<group>"; };
+		E3F497C581F3C15AE79C7AE5 /* libPods-Douyin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Douyin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C001330059D7BB637B98C63 /* libPods-Douyin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		466DD249A4BF0D511904DBDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3F497C581F3C15AE79C7AE5 /* libPods-Douyin.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8AF7B0C1F3D248F5103F729 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C578DEEA41216C3E0BD268B /* Pods-Douyin.debug.xcconfig */,
+				7F9405A60D0F91FDDA859550 /* Pods-Douyin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AB21FB90227FEA970096A59E = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +126,8 @@
 				AB21FBB4227FEA990096A59E /* DouyinTests */,
 				AB21FBBF227FEA990096A59E /* DouyinUITests */,
 				AB21FB9A227FEA970096A59E /* Products */,
+				A8AF7B0C1F3D248F5103F729 /* Pods */,
+				466DD249A4BF0D511904DBDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +144,8 @@
 		AB21FB9B227FEA970096A59E /* Douyin */ = {
 			isa = PBXGroup;
 			children = (
+				AB21FBCF227FECAB0096A59E /* Tools */,
+				AB21FBCE227FEC910096A59E /* Classes */,
 				AB21FB9C227FEA970096A59E /* AppDelegate.h */,
 				AB21FB9D227FEA970096A59E /* AppDelegate.m */,
 				AB21FB9F227FEA970096A59E /* ViewController.h */,
@@ -132,6 +177,73 @@
 			path = DouyinUITests;
 			sourceTree = "<group>";
 		};
+		AB21FBCE227FEC910096A59E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AB51EFF422804C960028C531 /* Base */,
+				AB51EFF022804C120028C531 /* Home */,
+				AB51EFF122804C230028C531 /* Follow */,
+				AB51EFF222804C300028C531 /* Chat */,
+				AB51EFF322804C4E0028C531 /* Mine */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AB21FBCF227FECAB0096A59E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				AB21FBD0227FECDD0096A59E /* DYPrefixHeader.pch */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		AB51EFF022804C120028C531 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AB51EFF822804CC50028C531 /* DYHomeViewController.h */,
+				AB51EFF922804CC50028C531 /* DYHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AB51EFF122804C230028C531 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				AB51EFFB22804CD20028C531 /* DYFollowViewController.h */,
+				AB51EFFC22804CD20028C531 /* DYFollowViewController.m */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		AB51EFF222804C300028C531 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				AB51EFFE22804CEC0028C531 /* DYChatListViewController.h */,
+				AB51EFFF22804CEC0028C531 /* DYChatListViewController.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		AB51EFF322804C4E0028C531 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				AB51F00122804D060028C531 /* DYMineViewController.h */,
+				AB51F00222804D060028C531 /* DYMineViewController.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		AB51EFF422804C960028C531 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AB51EFF522804CAE0028C531 /* DYBaseViewController.h */,
+				AB51EFF622804CAE0028C531 /* DYBaseViewController.m */,
+				AB51F00422804D500028C531 /* DYTabBarControllerConfig.h */,
+				AB51F00522804D500028C531 /* DYTabBarControllerConfig.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +251,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB21FBC5227FEA990096A59E /* Build configuration list for PBXNativeTarget "Douyin" */;
 			buildPhases = (
+				0C3972351460C80FFB9F2129 /* [CP] Check Pods Manifest.lock */,
 				AB21FB95227FEA970096A59E /* Sources */,
 				AB21FB96227FEA970096A59E /* Frameworks */,
 				AB21FB97227FEA970096A59E /* Resources */,
@@ -257,13 +370,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C3972351460C80FFB9F2129 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Douyin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB21FB95227FEA970096A59E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB51EFF722804CAE0028C531 /* DYBaseViewController.m in Sources */,
 				AB21FBA1227FEA970096A59E /* ViewController.m in Sources */,
 				AB21FBAC227FEA990096A59E /* main.m in Sources */,
+				AB51EFFA22804CC50028C531 /* DYHomeViewController.m in Sources */,
+				AB51F00022804CEC0028C531 /* DYChatListViewController.m in Sources */,
+				AB51EFFD22804CD20028C531 /* DYFollowViewController.m in Sources */,
+				AB51F00322804D060028C531 /* DYMineViewController.m in Sources */,
+				AB51F00622804D500028C531 /* DYTabBarControllerConfig.m in Sources */,
 				AB21FB9E227FEA970096A59E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,10 +577,12 @@
 		};
 		AB21FBC6227FEA990096A59E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C578DEEA41216C3E0BD268B /* Pods-Douyin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZWB985PQRH;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Douyin/Tools/DYPrefixHeader.pch";
 				INFOPLIST_FILE = Douyin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,15 +591,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Ternence.Douyin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
 		AB21FBC7227FEA990096A59E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F9405A60D0F91FDDA859550 /* Pods-Douyin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZWB985PQRH;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Douyin/Tools/DYPrefixHeader.pch";
 				INFOPLIST_FILE = Douyin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +611,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Ternence.Douyin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};
