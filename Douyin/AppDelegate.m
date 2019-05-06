@@ -7,16 +7,31 @@
 //
 
 #import "AppDelegate.h"
+#import "DYTabBarControllerConfig.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<CYLTabBarControllerDelegate>
 
 @end
 
 @implementation AppDelegate
 
+- (UIWindow *)window{
+    if (!_window) {
+        _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        _window.backgroundColor = [UIColor whiteColor];
+        [_window makeKeyAndVisible];
+    }
+    return _window;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    DYTabBarControllerConfig *tabBarControllerConfig = [[DYTabBarControllerConfig alloc]init];
+    CYLTabBarController *tabBarController = tabBarControllerConfig.tabBarController;
+    tabBarController.selectedIndex = 0;
+    [self.window setRootViewController:tabBarController];
+    
     return YES;
 }
 

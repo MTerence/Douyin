@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		8C001330059D7BB637B98C63 /* libPods-Douyin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F497C581F3C15AE79C7AE5 /* libPods-Douyin.a */; };
 		AB21FB9E227FEA970096A59E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FB9D227FEA970096A59E /* AppDelegate.m */; };
-		AB21FBA1227FEA970096A59E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FBA0227FEA970096A59E /* ViewController.m */; };
-		AB21FBA4227FEA970096A59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB21FBA2227FEA970096A59E /* Main.storyboard */; };
 		AB21FBA6227FEA990096A59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB21FBA5227FEA990096A59E /* Assets.xcassets */; };
 		AB21FBA9227FEA990096A59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB21FBA7227FEA990096A59E /* LaunchScreen.storyboard */; };
 		AB21FBAC227FEA990096A59E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB21FBAB227FEA990096A59E /* main.m */; };
@@ -22,6 +20,7 @@
 		AB51F00022804CEC0028C531 /* DYChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFFF22804CEC0028C531 /* DYChatListViewController.m */; };
 		AB51F00322804D060028C531 /* DYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51F00222804D060028C531 /* DYMineViewController.m */; };
 		AB51F00622804D500028C531 /* DYTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51F00522804D500028C531 /* DYTabBarControllerConfig.m */; };
+		AB51F009228056880028C531 /* UIColor+DYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51F008228056880028C531 /* UIColor+DYColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +46,6 @@
 		AB21FB99227FEA970096A59E /* Douyin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Douyin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB21FB9C227FEA970096A59E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AB21FB9D227FEA970096A59E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AB21FB9F227FEA970096A59E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AB21FBA0227FEA970096A59E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		AB21FBA3227FEA970096A59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB21FBA5227FEA990096A59E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB21FBA8227FEA990096A59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB21FBAA227FEA990096A59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +69,8 @@
 		AB51F00222804D060028C531 /* DYMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMineViewController.m; sourceTree = "<group>"; };
 		AB51F00422804D500028C531 /* DYTabBarControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYTabBarControllerConfig.h; sourceTree = "<group>"; };
 		AB51F00522804D500028C531 /* DYTabBarControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYTabBarControllerConfig.m; sourceTree = "<group>"; };
+		AB51F007228056880028C531 /* UIColor+DYColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+DYColor.h"; sourceTree = "<group>"; };
+		AB51F008228056880028C531 /* UIColor+DYColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DYColor.m"; sourceTree = "<group>"; };
 		E3F497C581F3C15AE79C7AE5 /* libPods-Douyin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Douyin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,13 +142,11 @@
 		AB21FB9B227FEA970096A59E /* Douyin */ = {
 			isa = PBXGroup;
 			children = (
+				AB51F00A228056B70028C531 /* Category */,
 				AB21FBCF227FECAB0096A59E /* Tools */,
 				AB21FBCE227FEC910096A59E /* Classes */,
 				AB21FB9C227FEA970096A59E /* AppDelegate.h */,
 				AB21FB9D227FEA970096A59E /* AppDelegate.m */,
-				AB21FB9F227FEA970096A59E /* ViewController.h */,
-				AB21FBA0227FEA970096A59E /* ViewController.m */,
-				AB21FBA2227FEA970096A59E /* Main.storyboard */,
 				AB21FBA5227FEA990096A59E /* Assets.xcassets */,
 				AB21FBA7227FEA990096A59E /* LaunchScreen.storyboard */,
 				AB21FBAA227FEA990096A59E /* Info.plist */,
@@ -242,6 +238,15 @@
 				AB51F00522804D500028C531 /* DYTabBarControllerConfig.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		AB51F00A228056B70028C531 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				AB51F007228056880028C531 /* UIColor+DYColor.h */,
+				AB51F008228056880028C531 /* UIColor+DYColor.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,7 +355,6 @@
 			files = (
 				AB21FBA9227FEA990096A59E /* LaunchScreen.storyboard in Resources */,
 				AB21FBA6227FEA990096A59E /* Assets.xcassets in Resources */,
-				AB21FBA4227FEA970096A59E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,11 +405,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB51EFF722804CAE0028C531 /* DYBaseViewController.m in Sources */,
-				AB21FBA1227FEA970096A59E /* ViewController.m in Sources */,
 				AB21FBAC227FEA990096A59E /* main.m in Sources */,
 				AB51EFFA22804CC50028C531 /* DYHomeViewController.m in Sources */,
 				AB51F00022804CEC0028C531 /* DYChatListViewController.m in Sources */,
 				AB51EFFD22804CD20028C531 /* DYFollowViewController.m in Sources */,
+				AB51F009228056880028C531 /* UIColor+DYColor.m in Sources */,
 				AB51F00322804D060028C531 /* DYMineViewController.m in Sources */,
 				AB51F00622804D500028C531 /* DYTabBarControllerConfig.m in Sources */,
 				AB21FB9E227FEA970096A59E /* AppDelegate.m in Sources */,
@@ -444,14 +448,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AB21FBA2227FEA970096A59E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AB21FBA3227FEA970096A59E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AB21FBA7227FEA990096A59E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
