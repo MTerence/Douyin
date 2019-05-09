@@ -51,7 +51,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setNavigationBarClear];
+   // [self setNavigationBarClear];
 }
 
 - (void)viewDidLoad {
@@ -62,7 +62,9 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
+    
 //    [self.view addSubview:self.tableView];
+//    [self.tableView addSubview:self.tableHeader];
 //    [self.tableView setTableHeaderView:self.tableHeader];
     
     
@@ -72,7 +74,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     [self.pageScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    
+
     [self.pageScrollView reloadData];
 }
 
@@ -97,9 +99,18 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     CGFloat offsetY = scrollView.contentOffset.y;
     //NSLog(@"-------content.y: %lf",offsetY);
     
+    UIPanGestureRecognizer *gesture;
+    CGPoint point = [gesture velocityInView:gesture.view];
     if (isMainCanScroll == NO) {
+        NSLog(@"-------point.y: %lf", point.y);
         if (scrollView.isDecelerating == YES) {
             NSLog(@"isDecelerating");
+            NSLog(@"========point.y: %lf", point.y);
+            
+            for (DYVideoListController *controller in self.childVCs) {
+                //[controller.collectionView scrollRectToVisible:CGRectMake(0, 0, SCREEN_WIDTH, velocity.y * 30) animated:YES];
+            }
+            
         }
     }
 }
@@ -109,7 +120,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     if (isMainCanScroll == NO) {
         for (DYVideoListController *controller in self.childVCs) {
             
-            [controller.collectionView scrollRectToVisible:CGRectMake(0, 0, SCREEN_WIDTH, velocity.y * 30) animated:YES];
+            //[controller.collectionView scrollRectToVisible:CGRectMake(0, 0, SCREEN_WIDTH, velocity.y * 30) animated:YES];
         }
     }
 }
@@ -132,9 +143,6 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     [self.pageScrollView horizonScrollViewDidEndedScroll];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-}
 
 #pragma mark - getters and setters
 - (GKPageScrollView *)pageScrollView{
@@ -207,11 +215,19 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 
 #pragma mark - UITabBarDelegate, UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 500;
+    
+    return SCREEN_HEIGHT;
+    
+//    return 500;
+    if (indexPath.row == 0) {
+        return kHeaderViewHeight;
+    }
+    
+    return SCREEN_HEIGHT - kHeaderViewHeight;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -241,7 +257,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 //    return [UIView new];
 //}
 
-/*
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     CGFloat offsetY = scrollView.contentOffset.y;
@@ -261,7 +277,6 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     }
 }
 
- */
 - (void)updateNaviBar:(CGFloat)offsetY{
     if (kHeaderViewHeight - self.navigationController.navigationBar.height*2 > offsetY) {
         [self setNavigationBarClear];
@@ -326,6 +341,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
         _tableView.contentInset = UIEdgeInsetsMake(0,0,0,0);
         _tableView.showsVerticalScrollIndicator = NO;
         [_tableView registerClass:[DYMineTableCell class] forCellReuseIdentifier:kDYMineTableCell];
+        _tableView.scrollEnabled = NO;
         
         if (@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -376,5 +392,4 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     }
     return _verticalCollectionView;
 }
-
 @end

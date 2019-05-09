@@ -79,6 +79,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        self.clipsToBounds = NO;
         [self setupUI];
         [self setupConstrains];
         
@@ -240,6 +241,7 @@
         _topbackgroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, DY_SCALE_WIDTH(50) + NAVIBar_H)];
         _topbackgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
         _topbackgroundImageView.image = [UIImage imageNamed:@"headerbg1"];
+        _topbackgroundImageView.clipsToBounds = NO;
     }
     return _topbackgroundImageView;
 }

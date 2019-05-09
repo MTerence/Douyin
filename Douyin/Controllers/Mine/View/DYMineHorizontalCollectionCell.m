@@ -9,8 +9,6 @@
 #import "DYMineHorizontalCollectionCell.h"
 
 
-
-
 @implementation DYMineHorizontalCollectionCell
 
 - (instancetype)initWithFrame:(CGRect)frame{

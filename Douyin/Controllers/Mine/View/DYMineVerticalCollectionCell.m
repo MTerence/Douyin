@@ -12,8 +12,6 @@ NSString *const kDYMineHorizontalCollectionCell = @"DYMineHorizontalCollectionCe
 
 @interface DYMineVerticalCollectionCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-
-
 @end
 
 @implementation DYMineVerticalCollectionCell
