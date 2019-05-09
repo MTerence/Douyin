@@ -1,0 +1,11 @@
+target 'Douyin' do
+platform :ios, 9.0
+
+    pod 'CYLTabBarController',      '~> 1.24.1'
+    pod 'Masonry',                  '~> 1.1.0'
+    pod 'AFNetworking',             '~> 3.2.1'
+    pod 'SDWebImage',               '~> 4.4.3'
+    pod 'YYText',                   '~> 1.0.7'
+    pod 'GKPageScrollView',         '~> 1.2.4'
+
+end
