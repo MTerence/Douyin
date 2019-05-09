@@ -130,7 +130,6 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 }
 
 
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.pageScrollView horizonScrollViewWillBeginScroll];
 }
