@@ -11,6 +11,7 @@
 #import "DYFollowViewController.h"
 #import "DYChatListViewController.h"
 #import "DYMineViewController.h"
+#import "DYUserHomeController.h"
 
 static CGFloat const CYLTabBarControllerHeight = 40.f;
 
@@ -58,7 +59,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
                                                    initWithRootViewController:thirdViewController];
     [thirdViewController cyl_setHideNavigationBarSeparator:YES];
     
-    DYMineViewController *fourthViewController = [[DYMineViewController alloc] init];
+    DYUserHomeController *fourthViewController = [[DYUserHomeController alloc] init];
     UIViewController *fourthNavigationController = [[CYLBaseNavigationController alloc]
                                                     initWithRootViewController:fourthViewController];
     [fourthNavigationController cyl_setHideNavigationBarSeparator:YES];

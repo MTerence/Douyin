@@ -45,6 +45,7 @@
 #define SCREEN_HEIGHT       [UIScreen mainScreen].bounds.size.height
 
 #define NAVIBar_H               (iphoneX ? 88 : 64)
+#define TABBAR_HEIGHT    self.tabBarController.tabBar.height
 
 #define kNaviBarNormalColor     [UIColor colorWithR:64 g:66 b:76 a:1]
 

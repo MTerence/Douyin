@@ -20,6 +20,10 @@
 		AB2BA0D822819B1D00E56992 /* DYUserHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2BA0D722819B1D00E56992 /* DYUserHomePageController.m */; };
 		AB2BA0DC22819F7900E56992 /* UIFont+DYFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2BA0DB22819F7900E56992 /* UIFont+DYFont.m */; };
 		AB2BA0E02281AA3600E56992 /* DYVideoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2BA0DF2281AA3600E56992 /* DYVideoListView.m */; };
+		AB318A67228529F300EB2896 /* DYMineContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB318A66228529F300EB2896 /* DYMineContentScrollView.m */; };
+		AB318A6D22852E9B00EB2896 /* DYMineDynamicsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB318A6C22852E9B00EB2896 /* DYMineDynamicsTableView.m */; };
+		AB318A70228573A900EB2896 /* DYUserHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB318A6F228573A900EB2896 /* DYUserHomeController.m */; };
+		AB41542B228584E7006B11E5 /* DYMineUserInfoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB41542A228584E7006B11E5 /* DYMineUserInfoHeader.m */; };
 		AB51EFF722804CAE0028C531 /* DYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFF622804CAE0028C531 /* DYBaseViewController.m */; };
 		AB51EFFA22804CC50028C531 /* DYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFF922804CC50028C531 /* DYHomeViewController.m */; };
 		AB51EFFD22804CD20028C531 /* DYFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51EFFC22804CD20028C531 /* DYFollowViewController.m */; };
@@ -88,6 +92,14 @@
 		AB2BA0DB22819F7900E56992 /* UIFont+DYFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+DYFont.m"; sourceTree = "<group>"; };
 		AB2BA0DE2281AA3600E56992 /* DYVideoListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYVideoListView.h; sourceTree = "<group>"; };
 		AB2BA0DF2281AA3600E56992 /* DYVideoListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYVideoListView.m; sourceTree = "<group>"; };
+		AB318A65228529F300EB2896 /* DYMineContentScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMineContentScrollView.h; sourceTree = "<group>"; };
+		AB318A66228529F300EB2896 /* DYMineContentScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMineContentScrollView.m; sourceTree = "<group>"; };
+		AB318A6B22852E9B00EB2896 /* DYMineDynamicsTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMineDynamicsTableView.h; sourceTree = "<group>"; };
+		AB318A6C22852E9B00EB2896 /* DYMineDynamicsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMineDynamicsTableView.m; sourceTree = "<group>"; };
+		AB318A6E228573A900EB2896 /* DYUserHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYUserHomeController.h; sourceTree = "<group>"; };
+		AB318A6F228573A900EB2896 /* DYUserHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYUserHomeController.m; sourceTree = "<group>"; };
+		AB415429228584E7006B11E5 /* DYMineUserInfoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMineUserInfoHeader.h; sourceTree = "<group>"; };
+		AB41542A228584E7006B11E5 /* DYMineUserInfoHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMineUserInfoHeader.m; sourceTree = "<group>"; };
 		AB51EFF522804CAE0028C531 /* DYBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYBaseViewController.h; sourceTree = "<group>"; };
 		AB51EFF622804CAE0028C531 /* DYBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYBaseViewController.m; sourceTree = "<group>"; };
 		AB51EFF822804CC50028C531 /* DYHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHomeViewController.h; sourceTree = "<group>"; };
@@ -256,6 +268,7 @@
 		AB2BA0DD2281AA1800E56992 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB318A64228529C600EB2896 /* New View */,
 				AB90376222828A5F00BF3A6E /* DYMineTableCell.h */,
 				AB90376322828A5F00BF3A6E /* DYMineTableCell.m */,
 				AB90376522828BAA00BF3A6E /* DYMineTableHeader.h */,
@@ -274,6 +287,19 @@
 				AB9921F82283FD1800D50263 /* DYMineHorizontalCollectionCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AB318A64228529C600EB2896 /* New View */ = {
+			isa = PBXGroup;
+			children = (
+				AB318A65228529F300EB2896 /* DYMineContentScrollView.h */,
+				AB318A66228529F300EB2896 /* DYMineContentScrollView.m */,
+				AB318A6B22852E9B00EB2896 /* DYMineDynamicsTableView.h */,
+				AB318A6C22852E9B00EB2896 /* DYMineDynamicsTableView.m */,
+				AB415429228584E7006B11E5 /* DYMineUserInfoHeader.h */,
+				AB41542A228584E7006B11E5 /* DYMineUserInfoHeader.m */,
+			);
+			path = "New View";
 			sourceTree = "<group>";
 		};
 		AB51EFF022804C120028C531 /* Home */ = {
@@ -309,6 +335,8 @@
 				AB2BA0DD2281AA1800E56992 /* View */,
 				AB51F00122804D060028C531 /* DYMineViewController.h */,
 				AB51F00222804D060028C531 /* DYMineViewController.m */,
+				AB318A6E228573A900EB2896 /* DYUserHomeController.h */,
+				AB318A6F228573A900EB2896 /* DYUserHomeController.m */,
 				AB2BA0D622819B1D00E56992 /* DYUserHomePageController.h */,
 				AB2BA0D722819B1D00E56992 /* DYUserHomePageController.m */,
 				AB9921EE2283E10300D50263 /* DYMineVerticalCollectionLayout.h */,
@@ -539,8 +567,12 @@
 				AB9921E82283C49C00D50263 /* LXDSegmentControl.m in Sources */,
 				AB51F00322804D060028C531 /* DYMineViewController.m in Sources */,
 				AB9921F92283FD1800D50263 /* DYMineHorizontalCollectionCell.m in Sources */,
+				AB318A6D22852E9B00EB2896 /* DYMineDynamicsTableView.m in Sources */,
+				AB318A70228573A900EB2896 /* DYUserHomeController.m in Sources */,
 				AB90376422828A5F00BF3A6E /* DYMineTableCell.m in Sources */,
 				AB83227D2282BBA00047FA9B /* DYTools.m in Sources */,
+				AB318A67228529F300EB2896 /* DYMineContentScrollView.m in Sources */,
+				AB41542B228584E7006B11E5 /* DYMineUserInfoHeader.m in Sources */,
 				AB90376722828BAA00BF3A6E /* DYMineTableHeader.m in Sources */,
 				AB2BA0CC228184C900E56992 /* DYTabBarController.m in Sources */,
 				AB21FB9E227FEA970096A59E /* AppDelegate.m in Sources */,

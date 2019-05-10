@@ -17,6 +17,8 @@
 #import "GKPageScrollView.h"
 #import "LXDSegmentControl.h"
 #import "DYVideoListController.h"
+#import "DYMineContentScrollView.h"
+#import "DYMineDynamicsTableView.h"
 
 NSString *const kDYMineTableCell = @"DYMineTableCell";
 NSString *const kDYMineVerticalCollectionCell = @"DYMineVerticalCollectionCell";
@@ -44,6 +46,18 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 
 @property (nonatomic, strong) NSArray *childVCs;
 
+//new
+@property (nonatomic, strong) DYMineContentScrollView *contentScrollView;
+@property (nonatomic, strong) DYVideoListView *ownVideoList;
+@property (nonatomic, strong) DYVideoListView *dynamicVideoList;
+@property (nonatomic, strong) DYVideoListView *likeVideoList;
+
+@property (nonatomic, strong) DYMineDynamicsTableView *tableView1;
+@property (nonatomic, strong) DYMineDynamicsTableView *tableView2;
+@property (nonatomic, strong) DYMineDynamicsTableView *tableView3;
+
+@property (nonatomic, strong) UIView *tableViewHeaderView;
+@property (nonatomic, strong) UIView *headerView;
 
 @end
 
@@ -70,14 +84,58 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     
 //    [self.view addSubview:self.verticalCollectionView];
     
+    /*
     [self.view addSubview:self.pageScrollView];
     [self.pageScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
 
     [self.pageScrollView reloadData];
+    */
+    //new
+    [self setupContentView];
+    [self setupHeaderView];
 }
 
+#pragma mark - New
+- (void)setupContentView{
+    self.contentScrollView = [[DYMineContentScrollView alloc]init];
+    self.contentScrollView.delaysContentTouches = NO;
+    [self.view addSubview:self.contentScrollView];
+    self.contentScrollView.pagingEnabled = YES;
+    self.contentScrollView.delegate = self;
+    self.contentScrollView.backgroundColor = [UIColor redColor];
+    self.contentScrollView.contentSize = CGSizeMake(SCREEN_WIDTH *3, 0);
+    self.contentScrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight)];
+    headView.backgroundColor = [UIColor lightGrayColor];
+    self.tableViewHeaderView = headView;
+
+    self.tableView1 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView1.delegate = self;
+    self.tableView1.tableHeaderView = headView;
+    [self.contentScrollView addSubview:self.tableView1];
+
+    self.tableView2 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView2.delegate = self;
+    self.tableView2.tableHeaderView = headView;
+    [self.contentScrollView addSubview:self.tableView2];
+
+    self.tableView3 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView3.delegate = self;
+    self.tableView3.tableHeaderView = headView;
+    [self.contentScrollView addSubview:self.tableView3];
+}
+
+- (void)setupHeaderView{
+    [self.view addSubview:self.tableHeader];
+    self.headerView = self.tableHeader;
+}
+
+#pragma mark - NewEnd
+
+/*
 #pragma mark - GKPageScrollViewDelegate
 - (BOOL)shouldLazyLoadListInPageScrollView:(GKPageScrollView *)pageScrollView{
     return NO;
@@ -141,7 +199,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [self.pageScrollView horizonScrollViewDidEndedScroll];
 }
-
+*/
 
 #pragma mark - getters and setters
 - (GKPageScrollView *)pageScrollView{
@@ -212,6 +270,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     return _childVCs;
 }
 
+/*
 #pragma mark - UITabBarDelegate, UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -255,10 +314,11 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 //
 //    return [UIView new];
 //}
-
+*/
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
+    /*
     CGFloat offsetY = scrollView.contentOffset.y;
     NSLog(@"=======offsetY: %lf", offsetY);
     DYMineVerticalCollectionCell *cell = (DYMineVerticalCollectionCell *)[self.verticalCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
@@ -274,6 +334,7 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
         
         horizontalCell.videoList.collectionView.scrollEnabled = YES;
     }
+     */
 }
 
 - (void)updateNaviBar:(CGFloat)offsetY{
