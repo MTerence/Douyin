@@ -12,7 +12,7 @@
 #import "DYMineUserInfoHeader.h"
 #import "LXDSegmentControl.h"
 
-#define kHeaderViewHeight     DY_SCALE_WIDTH(450) + NAVIBar_H
+#define kHeaderViewHeight     DY_SCALE_WIDTH(400)
 #define kSegmentControlHeight DY_SCALE_WIDTH(40)
 
 @interface DYUserHomeController ()<UIScrollViewDelegate,UITableViewDelegate,LXDSegmentControlDelegate>
@@ -39,7 +39,7 @@
     [self setupContentView];
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
-//    [self setupHeaderView];
+    [self setupHeaderView];
 }
 
 - (void)setupContentView{
@@ -53,36 +53,35 @@
     self.scrollView.backgroundColor = [UIColor redColor];
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH *3, 0);
     
-    return;
-    self.tableViewHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight)];
+    self.tableViewHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight)];
     self.tableViewHeaderView.backgroundColor = [UIColor blueColor];
     
-    self.tableView1 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView1 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.width, self.scrollView.height) style:UITableViewStylePlain];
     self.tableView1.delegate = self;
     self.tableView1.tableHeaderView = self.tableViewHeaderView;
     [self.scrollView addSubview:self.tableView1];
     
-    self.tableView2 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView2 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, self.scrollView.width, self.scrollView.height) style:UITableViewStylePlain];
     self.tableView2.delegate = self;
     self.tableView2.tableHeaderView = self.tableViewHeaderView;
     [self.scrollView addSubview:self.tableView2];
     
-    self.tableView3 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView3 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, self.scrollView.width, self.scrollView.height) style:UITableViewStylePlain];
     self.tableView3.delegate = self;
     self.tableView3.tableHeaderView = self.tableViewHeaderView;
     [self.scrollView addSubview:self.tableView3];
 }
 
 - (void)setupHeaderView{
-    self.headerView = [[DYMineUserInfoHeader alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight)];
+    self.headerView = [[DYMineUserInfoHeader alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight+ kSegmentControlHeight)];
     [self.view addSubview:self.headerView];
     
     [self.headerView addSubview:self.segmentControl];
     
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.mas_equalTo(self.headerView.top);
-    }];
+//    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.bottom.equalTo(self.view);
+//        make.top.mas_equalTo(self.headerView.top);
+//    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -90,6 +89,7 @@
         return;
     }
     CGFloat offsetY      = scrollView.contentOffset.y;
+    NSLog(@"-------offsetY:%lf",offsetY);
     CGFloat originY      = 0;
     CGFloat otherOffsetY = 0;
     if (offsetY <= kHeaderViewHeight) {
@@ -104,7 +104,7 @@
         otherOffsetY         = kHeaderViewHeight;
     }
     
-    self.headerView.frame = CGRectMake(0, originY, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight);
+    self.headerView.frame = CGRectMake(0, originY + NAVIBar_H, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight);
     for ( int i = 0; i < 3; i++ ) {
         // 解决 UITableView 高度问题
         UITableView *contentView = self.scrollView.subviews[i];
@@ -144,7 +144,7 @@
     if (_segmentControl == nil) {
         LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"作品 18",@"动态 18",@"喜欢 213"]];
         //使用配置对象创建分栏控制器
-        _segmentControl = [LXDSegmentControl segmentControlWithFrame:CGRectMake(0, kHeaderViewHeight -kSegmentControlHeight, SCREEN_WIDTH, kSegmentControlHeight) configuration: configuration delegate: self];
+        _segmentControl = [LXDSegmentControl segmentControlWithFrame:CGRectMake(0, kHeaderViewHeight, SCREEN_WIDTH, kSegmentControlHeight) configuration: configuration delegate: self];
     }
     return _segmentControl;
 }

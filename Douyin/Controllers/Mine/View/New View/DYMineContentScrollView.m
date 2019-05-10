@@ -7,7 +7,7 @@
 //
 
 #import "DYMineContentScrollView.h"
-#define kMineHeaderViewHeight   DY_SCALE_WIDTH(450) + NAVIBar_H
+#define kMineHeaderViewHeight   DY_SCALE_WIDTH(400)
 
 @implementation DYMineContentScrollView
 

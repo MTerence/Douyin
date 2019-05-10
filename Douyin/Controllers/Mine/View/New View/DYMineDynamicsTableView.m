@@ -20,6 +20,12 @@
         self.dataSource = self;
 //        self.delegate = self;
         self.showsVerticalScrollIndicator = NO;
+        
+        if (@available(iOS 11.0, *)) {
+            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            self.inputViewController.automaticallyAdjustsScrollViewInsets = NO;
+        }
     }
     return self;
 }
