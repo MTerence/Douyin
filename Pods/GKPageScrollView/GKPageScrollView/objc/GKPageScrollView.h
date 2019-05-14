@@ -64,8 +64,6 @@
 
 @optional
 
-- (void)delegate_scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset isMainCanScroll:(BOOL)isMainCanScroll;
-
 #pragma mark - 非懒加载相关方法(`shouldLazyLoadListInPageScrollView`方法返回NO时必须实现下面的方法)
 /**
  返回分页视图
@@ -125,7 +123,6 @@
  @param isMainCanScroll mainTableView是否可滑动，YES表示可滑动，没有到达临界点，NO表示不可滑动，已到达临界点
  */
 - (void)mainTableViewDidScroll:(UIScrollView *)scrollView isMainCanScroll:(BOOL)isMainCanScroll;
-
 
 /**
  mainTableView结束滑动

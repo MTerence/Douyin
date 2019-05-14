@@ -43,10 +43,15 @@
 #define DY_SCALE_WIDTH(w)   (round([UIScreen mainScreen].bounds.size.width)/375.0*(w))
 #define SCREEN_WIDTH        [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT       [UIScreen mainScreen].bounds.size.height
+#define STATUSBAR_HIGHT     [[UIApplication sharedApplication] statusBarFrame].size.height
 
 #define NAVIBar_H               (iphoneX ? 88 : 64)
 #define TABBAR_HEIGHT    self.tabBarController.tabBar.height
 
 #define kNaviBarNormalColor     [UIColor colorWithR:64 g:66 b:76 a:1]
+
+
+#define kHeaderViewHeight     DY_SCALE_WIDTH(470)
+#define kSegmentControlHeight DY_SCALE_WIDTH(40)
 
 #endif /* DYGlobalMacro_h */

@@ -28,6 +28,7 @@
 #pragma mark - 设置导航栏
 - (void)setNavigationBar{
     self.navigationController.navigationBar.hidden = NO;
+    [self setNavigationBarTitleColor:[UIColor whiteColor]];
     
     //隐藏导航栏分割线
     UIView *backgroundView = [self.navigationController.navigationBar subviews].firstObject;
@@ -111,5 +112,9 @@
     
 }
 
+#pragma mark - 设置导航栏标题文字颜色
+- (void)setNavigationBarTitleColor:(UIColor *)color{
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:color}];
+}
 
 @end

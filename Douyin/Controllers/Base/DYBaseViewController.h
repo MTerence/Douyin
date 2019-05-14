@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setNavigationBarNoneClear;
 
+- (void)setNavigationBarTitleColor:(UIColor *)color;
+
 @end
 
 NS_ASSUME_NONNULL_END

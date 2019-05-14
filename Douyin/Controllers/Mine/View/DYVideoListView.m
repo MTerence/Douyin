@@ -8,12 +8,14 @@
 
 #import "DYVideoListView.h"
 #import "DYVideoListCollectionCell.h"
+#import "DYVideoListCollectionHeader.h"
 
 #define itemWidth   (self.width/3.0f - 1)
 #define itemHeight  (itemWidth * 1.35f)
 NSString *const kVideoListCollectionCell = @"DYVideoListCollectionCell";
+NSString *const kDYVideoListCollectionHeader = @"DYVideoListCollectionHeader";
 
-@interface DYVideoListView ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface DYVideoListView ()<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @end
 
@@ -45,6 +47,29 @@ NSString *const kVideoListCollectionCell = @"DYVideoListCollectionCell";
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    if (kind == UICollectionElementKindSectionHeader) {
+        DYVideoListCollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kDYVideoListCollectionHeader forIndexPath:indexPath];
+        return header;
+    }
+    
+    return [UICollectionReusableView new];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(SCREEN_WIDTH, kHeaderViewHeight + kSegmentControlHeight);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+    return CGSizeZero;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(delegate_videoList:scrollDidScroll:)]) {
+        [self.delegate delegate_videoList:self scrollDidScroll:scrollView.contentOffset];
+    }
+}
+
 #pragma mark - Getter and setter
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -59,6 +84,7 @@ NSString *const kVideoListCollectionCell = @"DYVideoListCollectionCell";
         _collectionView.delegate = self;
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerClass:[DYVideoListCollectionCell class] forCellWithReuseIdentifier:kVideoListCollectionCell];
+        [_collectionView registerClass:[DYVideoListCollectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kDYVideoListCollectionHeader];
         
         if (@available(iOS 11.0, *)) {
             _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

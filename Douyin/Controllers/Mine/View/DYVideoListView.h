@@ -10,9 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DYVideoListView;
+
+@protocol DYVideoListViewDelegate <NSObject>
+
+- (void)delegate_videoList:(DYVideoListView *)videoList scrollDidScroll:(CGPoint)offset;
+
+@end
+
 @interface DYVideoListView : UIView
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+
+@property (nonatomic, weak) id<DYVideoListViewDelegate>delegate;
 
 @end
 

@@ -18,7 +18,7 @@
 #import "LXDSegmentControl.h"
 #import "DYVideoListController.h"
 #import "DYMineContentScrollView.h"
-#import "DYMineDynamicsTableView.h"
+#import "DYUserDynamicsTableView.h"
 
 NSString *const kDYMineTableCell = @"DYMineTableCell";
 NSString *const kDYMineVerticalCollectionCell = @"DYMineVerticalCollectionCell";
@@ -52,9 +52,9 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
 @property (nonatomic, strong) DYVideoListView *dynamicVideoList;
 @property (nonatomic, strong) DYVideoListView *likeVideoList;
 
-@property (nonatomic, strong) DYMineDynamicsTableView *tableView1;
-@property (nonatomic, strong) DYMineDynamicsTableView *tableView2;
-@property (nonatomic, strong) DYMineDynamicsTableView *tableView3;
+@property (nonatomic, strong) DYUserDynamicsTableView *tableView1;
+@property (nonatomic, strong) DYUserDynamicsTableView *tableView2;
+@property (nonatomic, strong) DYUserDynamicsTableView *tableView3;
 
 @property (nonatomic, strong) UIView *tableViewHeaderView;
 @property (nonatomic, strong) UIView *headerView;
@@ -112,17 +112,17 @@ NSString *const kDYMineVerticalCollectionHeader = @"DYMineVerticalCollectionHead
     headView.backgroundColor = [UIColor lightGrayColor];
     self.tableViewHeaderView = headView;
 
-    self.tableView1 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView1 = [[DYUserDynamicsTableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     self.tableView1.delegate = self;
     self.tableView1.tableHeaderView = headView;
     [self.contentScrollView addSubview:self.tableView1];
 
-    self.tableView2 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView2 = [[DYUserDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     self.tableView2.delegate = self;
     self.tableView2.tableHeaderView = headView;
     [self.contentScrollView addSubview:self.tableView2];
 
-    self.tableView3 = [[DYMineDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.tableView3 = [[DYUserDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     self.tableView3.delegate = self;
     self.tableView3.tableHeaderView = headView;
     [self.contentScrollView addSubview:self.tableView3];

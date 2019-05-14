@@ -1,8 +1,8 @@
 //
-//  DYMineDymicTableView.h
+//  DYVideoListCollectionHeader.h
 //  Douyin
 //
-//  Created by Ternence on 2019/5/10.
+//  Created by Ternence on 2019/5/14.
 //  Copyright © 2019 Ternence. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DYMineDynamicsTableView : UITableView
+@interface DYVideoListCollectionHeader : UICollectionReusableView
 
 @end
 

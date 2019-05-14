@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DYMineUserInfoHeader : UIView
 
+- (void)tableDidScroll:(CGFloat)offsetY;
+- (void)scrollToTopAction:(CGFloat)offsetY;
+
 @end
 
 NS_ASSUME_NONNULL_END

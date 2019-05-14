@@ -456,10 +456,4 @@ NO)
     [self mainTableViewCanScrollUpdate];
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(delegate_scrollViewWillEndDragging:withVelocity:targetContentOffset: isMainCanScroll:)]) {
-        [self.delegate delegate_scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset isMainCanScroll:self.isMainCanScroll];
-    }
-}
-
 @end
