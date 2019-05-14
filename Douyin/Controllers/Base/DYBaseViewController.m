@@ -104,8 +104,8 @@
     [rightButton addTarget:self action:@selector(action_onRightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
-    self.navigationItem.leftBarButtonItems = nil;
-    [self.navigationItem setLeftBarButtonItem:item];
+    self.navigationItem.rightBarButtonItem = nil;
+    [self.navigationItem setRightBarButtonItem:item];
 }
 
 - (void)action_onRightBtnClick:(UIButton *)sender{

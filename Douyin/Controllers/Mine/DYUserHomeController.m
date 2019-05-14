@@ -57,6 +57,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"Amen"];
+    [self setRightBtnWithNormalName:@"icon_titlebar_addfriend" highName:@"" selectName:@""];
     [self setupContentView];
     
     [self setupHeaderView];
