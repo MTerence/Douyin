@@ -20,18 +20,26 @@ NSString *const kDYUserDynamicsTableCell = @"DYUserDynamicsTableCell";
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
     if (self) {
-        self.dataSource = self;
-        self.delegate = self;
-        self.showsVerticalScrollIndicator = NO;
-        [self registerClass:[DYUserDynamicsTableCell class] forCellReuseIdentifier:kDYUserDynamicsTableCell];
-        
-        if (@available(iOS 11.0, *)) {
-            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            self.inputViewController.automaticallyAdjustsScrollViewInsets = NO;
-        }
+        [self setupUI];
     }
     return self;
+}
+
+- (void)setupUI{
+    self.dataSource = self;
+    self.delegate = self;
+    self.showsVerticalScrollIndicator = NO;
+    [self registerClass:[DYUserDynamicsTableCell class] forCellReuseIdentifier:kDYUserDynamicsTableCell];
+    
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.inputViewController.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
+    UIView *tableViewHeader  = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight)];
+    tableViewHeader.backgroundColor = [UIColor blueColor];
+    [self setTableHeaderView:tableViewHeader];
 }
 
 - (void)didMoveToWindow{

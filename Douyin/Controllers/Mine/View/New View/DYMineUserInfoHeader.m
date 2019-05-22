@@ -7,7 +7,6 @@
 //
 
 #import "DYMineUserInfoHeader.h"
-#import "LXDSegmentControl.h"
 
 #define kTopbackgroundNormalHeight DY_SCALE_WIDTH(150)
 #define kCornerRadius              3
@@ -45,7 +44,6 @@
 /** 抖音号与签名之间的线 */
 @property (nonatomic, strong) UIView *line;
 
-
 /** 个人签名 */
 @property (nonatomic, strong) UILabel *signLabel;
 
@@ -71,8 +69,7 @@
 /** 随拍 */
 @property (nonatomic, strong) UIButton *freeShootBtn;
 
-/** 选择器 */
-@property (nonatomic, strong) LXDSegmentControl *segmentControl;
+
 
 @end
 
@@ -119,11 +116,7 @@
     [self.contentView addSubview:self.fansNumLabel];
     [self.contentView addSubview:self.freeShootBtn];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self.contentView addSubview:self.segmentControl];
-//        
-//    });
-    
+    [self addSubview:self.segmentControl];
     //测试赋值
     self.nicknamelLabel.text = @"Amen";
     self.userIdLabel.text = @"抖音号:983928533";
@@ -247,6 +240,19 @@
     CGFloat scaleHeight = (370.f * scaleRatio)/2;
     self.topbackgroundImageView.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(scaleRatio + 1.0f, scaleRatio + 1.0f), CGAffineTransformMakeTranslation(0, -scaleHeight));
 }
+
+- (void)setSegmentCurrentIndex:(NSUInteger)currentIndex{
+    [self.segmentControl setCurrentIndex:currentIndex];
+}
+
+#pragma mark - LXDSegmentControlDelegate
+- (void)segmentControl:(LXDSegmentControl *)segmentControl didSelectAtIndex:(NSUInteger)index{
+    if (self.userInfoDelegate && [self.userInfoDelegate respondsToSelector:@selector(delegate_segmentControl:didSelectAtIndex:)]) {
+        [self.userInfoDelegate delegate_segmentControl:self.segmentControl didSelectAtIndex:index];
+    }
+}
+
+
 
 #pragma mark - getter and setter
 - (UIImageView *)topbackgroundImageView{
@@ -422,7 +428,7 @@
     if (_segmentControl == nil) {
         LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"作品 18",@"动态 18",@"喜欢 213"]];
         //使用配置对象创建分栏控制器
-        _segmentControl = [LXDSegmentControl segmentControlWithFrame:CGRectMake(0, self.freeShootBtn.bottom + DY_SCALE_WIDTH(10), SCREEN_WIDTH, kSegmentControlHeight) configuration: configuration delegate: self];
+        _segmentControl = [LXDSegmentControl segmentControlWithFrame:CGRectMake(0, self.height - kSegmentControlHeight, SCREEN_WIDTH, kSegmentControlHeight) configuration: configuration delegate: self];
     }
     return _segmentControl;
 }

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Douyin/Controller/UserHomePage/UserHomePageController.m"
-            timestampString = "579517675.546111"
+            filePath = "Douyin/Network/NetworkHelper.m"
+            timestampString = "580207527.929485"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-updateNavigationTitle:"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "+getWithUrlPath:request:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

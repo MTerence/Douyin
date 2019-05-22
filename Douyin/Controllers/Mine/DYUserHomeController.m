@@ -9,8 +9,6 @@
 #import "DYUserHomeController.h"
 #import "DYMineContentScrollView.h"
 #import "DYMineUserInfoHeader.h"
-#import "LXDSegmentControl.h"
-#import "DYVideoListView.h"
 #import "DYVideoListCollectionView.h"
 #import "DYUserDynamicsTableView.h"
 
@@ -19,30 +17,29 @@
 #define itemWidth   (self.view.width/3.0f - 1)
 #define itemHeight  (itemWidth * 1.35f)
 
-@interface DYUserHomeController ()<UIScrollViewDelegate,UITableViewDelegate,LXDSegmentControlDelegate,DYVideoListViewDelegate,DYVideoListCollectionViewDelegate,DYUserDynamicsTableView>
+@interface DYUserHomeController ()
+<UIScrollViewDelegate,
+UITableViewDelegate,
+DYVideoListCollectionViewDelegate,
+DYUserDynamicsTableView,
+DYUserInfoHeaderDelegate>
 
-@property (nonatomic, strong) DYMineUserInfoHeader *headerView;
-
-@property (nonatomic, strong) UIView *tableViewHeaderView;
-
+/** userInfoHader */
+@property (nonatomic, strong) DYMineUserInfoHeader *userInfoHeader;
+/** scrollView 纵向滑动的tableview和collectionview 上层*/
 @property (nonatomic, strong) DYMineContentScrollView *scrollView;
-
-@property (nonatomic, strong) DYUserDynamicsTableView *tableView1;
-@property (nonatomic, strong) DYUserDynamicsTableView *tableView2;
-@property (nonatomic, strong) DYUserDynamicsTableView *tableView3;
-
-@property (nonatomic, strong) LXDSegmentControl *segmentControl;
-
-
-/** 我的作品listView */
-@property (nonatomic, strong) DYVideoListView *myVideoList;
-
-/** 我的作品listView */
-@property (nonatomic, strong) DYVideoListCollectionView *myVideos;
-
-/** 我喜欢的视频listView */
-@property (nonatomic, strong) DYVideoListCollectionView *mylikeVideoList;
-
+/** 个人作品listView */
+@property (nonatomic, strong) DYVideoListCollectionView *userWorkVideoList;
+/** 用户动态listView */
+@property (nonatomic, strong) DYUserDynamicsTableView *userDynamicsTableView;
+/** 用户喜欢的视频listView */
+@property (nonatomic, strong) DYVideoListCollectionView *userLikeVideoList;
+/** 个人作品Array */
+@property (nonatomic, strong) NSMutableArray *videosArray;
+/** 个人动态Array */
+@property (nonatomic, strong) NSMutableArray *dynamicsArray;
+/** 个人喜欢视频Array */
+@property (nonatomic, strong) NSMutableArray *likeVideosArray;
 
 @end
 
@@ -51,83 +48,68 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setNavigationBarClear];
-//    [self setNavigationBarNoneClear];
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setTitle:@"Amen"];
     [self setRightBtnWithNormalName:@"icon_titlebar_addfriend" highName:@"" selectName:@""];
     [self setupContentView];
     
     [self setupHeaderView];
+    
+    [self loadData_UserInfo];
+}
+
+
+#pragma mark - 数据请求
+- (void)loadData_UserInfo{
+    NSDictionary *params = @{@"uid":@"97795069353"};
+    [NetworkRequestTool GetWithURL:kURL_UserInfo params:params success:^(id  _Nonnull json) {
+        NSLog(@"--json: %@",json);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"---error: %@",error);
+    }];
+}
+
+- (void)loadData_UserWorkVideoList{
+    NSDictionary *params = @{@"page":@"1",@"size":@"10",@"uid":@"97795069353"};
+    
+    [NetworkRequestTool GetWithURL:kURL_UserWorkVideoList params:params success:^(id  _Nonnull json) {
+        NSLog(@"--json: %@",json);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"---error: %@",error);
+    }];
 }
 
 - (void)setupContentView{
-    self.scrollView = [[DYMineContentScrollView alloc]initWithFrame:CGRectMake(0, -NAVIBar_H, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT)];
-    self.scrollView.delaysContentTouches = NO;
+
     [self.view addSubview:self.scrollView];
-    self.scrollView = self.scrollView;
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.delegate = self;
-    self.scrollView.backgroundColor = [UIColor redColor];
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH *3, 0);
-    
-    self.tableViewHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight)];
-    self.tableViewHeaderView.backgroundColor = [UIColor blueColor];
-    
-//    self.tableView1 = [[DYUserDynamicsTableView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.width, self.scrollView.height) style:UITableViewStylePlain];
-//    self.tableView1.delegate = self;
-//    self.tableView1.tableHeaderView = self.tableViewHeaderView;
-//    [self.scrollView addSubview:self.tableView1];
-    
-//    self.myVideoList = [[DYVideoListView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.width, self.scrollView.height)];
-//    self.myVideoList.delegate = self;
-//    [self.scrollView addSubview:self.myVideoList];
-    
+
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     layout.minimumLineSpacing = 1;
     layout.minimumInteritemSpacing = 1;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    self.myVideos = [[DYVideoListCollectionView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.width, self.scrollView.height) collectionViewLayout:layout];
-    self.myVideos.backgroundColor = [UIColor clearColor];
-    self.myVideos.videoListDelegate = self;
+    [self.scrollView addSubview:self.userWorkVideoList];
+    [self.scrollView addSubview:self.userDynamicsTableView];
+    [self.scrollView addSubview:self.userLikeVideoList];
+    
     if (@available(iOS 11.0, *)) {
-        self.myVideos.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.userWorkVideoList.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.userLikeVideoList.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.userDynamicsTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    [self.scrollView addSubview:self.myVideos];
-    
-    self.tableView2 = [[DYUserDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, self.scrollView.width, self.scrollView.height) style:UITableViewStylePlain];
-    self.tableView2.dynamicsDelegate = self;
-    self.tableView2.tableHeaderView = self.tableViewHeaderView;
-    [self.scrollView addSubview:self.tableView2];
-    
-    UICollectionViewFlowLayout *likeVideosLayout = [[UICollectionViewFlowLayout alloc]init];
-    likeVideosLayout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    likeVideosLayout.minimumLineSpacing = 1;
-    likeVideosLayout.minimumInteritemSpacing = 1;
-    likeVideosLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    
-    self.mylikeVideoList = [[DYVideoListCollectionView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, self.scrollView.width, self.scrollView.height) collectionViewLayout:layout];
-    self.mylikeVideoList.backgroundColor = [UIColor clearColor];
-    self.mylikeVideoList.videoListDelegate = self;
-    if (@available(iOS 11.0, *)) {
-        self.mylikeVideoList.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    [self.scrollView addSubview:self.mylikeVideoList];
 }
 
 - (void)setupHeaderView{
-    self.headerView = [[DYMineUserInfoHeader alloc]initWithFrame:CGRectMake(0, -NAVIBar_H, SCREEN_WIDTH, kHeaderViewHeight+ kSegmentControlHeight)];
-    [self.view addSubview:self.headerView];
-    
-    [self.headerView addSubview:self.segmentControl];
+    self.userInfoHeader = [[DYMineUserInfoHeader alloc]initWithFrame:CGRectMake(0, -NAVIBar_H, SCREEN_WIDTH, kHeaderViewHeight + kSegmentControlHeight)];
+    self.userInfoHeader.userInfoDelegate = self;
+    [self.view addSubview:self.userInfoHeader];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -148,13 +130,11 @@
         originY              = -kHeaderViewHeight;
         otherOffsetY         = kHeaderViewHeight;
     }
-
-    NSLog(@"======originy: %lf  %lf  %lf",offsetY, originY, kHeaderViewHeight - kSegmentControlHeight);
     
     if (offsetY >= kHeaderViewHeight - NAVIBar_H) {
-        self.headerView.frame = CGRectMake(0, -kHeaderViewHeight, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight);
+        self.userInfoHeader.frame = CGRectMake(0, -kHeaderViewHeight, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight);
     }else{
-        self.headerView.frame = CGRectMake(0, originY-NAVIBar_H, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight);
+        self.userInfoHeader.frame = CGRectMake(0, originY-NAVIBar_H, SCREEN_WIDTH, kHeaderViewHeight+kSegmentControlHeight);
     }
     
     for ( int i = 0; i < 3; i++ ) {
@@ -164,7 +144,8 @@
         if (contentView.contentSize.height < SCREEN_HEIGHT + kHeaderViewHeight - kSegmentControlHeight) {
             contentView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT + kHeaderViewHeight - kSegmentControlHeight);
         }
-        if (i != self.segmentControl.currentIndex) {
+        
+        if (i != self.userInfoHeader.segmentControl.currentIndex) {
             CGPoint offset = CGPointMake(0, otherOffsetY);
             if ([contentView isKindOfClass:[UITableView class]]) {
                 if (contentView.contentOffset.y < kHeaderViewHeight || offset.y < kHeaderViewHeight) {
@@ -176,9 +157,9 @@
     }
     
     if (offsetY < 0) {
-        [self.headerView tableDidScroll:offsetY];
+        [self.userInfoHeader tableDidScroll:offsetY];
     }else{
-        [self.headerView scrollToTopAction:offsetY];
+        [self.userInfoHeader scrollToTopAction:offsetY];
         [self updateNaviBar:offsetY];
     }
 }
@@ -187,7 +168,6 @@
 
     if (kHeaderViewHeight - self.navigationController.navigationBar.height*2 > offsetY) {
         [self setNavigationBarTitleColor:[UIColor clearColor]];
-        
     }
     
     if (kHeaderViewHeight - self.navigationController.navigationBar.height*2 < offsetY && offsetY < kHeaderViewHeight - self.navigationController.navigationBar.height) {
@@ -205,17 +185,12 @@
     if (scrollView == self.scrollView) {
         CGFloat offsetX = scrollView.contentOffset.x;
         NSInteger index = offsetX/SCREEN_WIDTH + 0.5;
-        [self.segmentControl setCurrentIndex:index];
+        [self.userInfoHeader setSegmentCurrentIndex:index];
     }
 }
 
-- (void)segmentControl:(LXDSegmentControl *)segmentControl didSelectAtIndex:(NSUInteger)index{
+- (void)delegate_segmentControl:(LXDSegmentControl *)segmentControl didSelectAtIndex:(NSUInteger)index{
     [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * index, 0) animated:YES];
-}
-
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - delegate
@@ -227,14 +202,56 @@
     [self scrollViewDidScroll:dynamicsList];
 }
 
-- (LXDSegmentControl *)segmentControl{
-    if (_segmentControl == nil) {
-        LXDSegmentControlConfiguration * configuration = [LXDSegmentControlConfiguration configurationWithControlType: LXDSegmentControlTypeSlideBlock items: @[@"作品 18",@"动态 18",@"喜欢 213"]];
-        //使用配置对象创建分栏控制器
-        _segmentControl = [LXDSegmentControl segmentControlWithFrame:CGRectMake(0, kHeaderViewHeight, SCREEN_WIDTH, kSegmentControlHeight) configuration: configuration delegate: self];
-        _segmentControl.backgroundColor = [UIColor redColor];
+
+#pragma mark - getter and setter
+- (DYMineContentScrollView *)scrollView{
+    if (_scrollView == nil) {
+        _scrollView = [[DYMineContentScrollView alloc]initWithFrame:CGRectMake(0, -NAVIBar_H, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT)];
+        _scrollView.delaysContentTouches = NO;
+        _scrollView.pagingEnabled = YES;
+        _scrollView.delegate = self;
+        _scrollView.backgroundColor = [UIColor redColor];
+        _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH *3, 0);
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
     }
-    return _segmentControl;
+    return _scrollView;
+}
+
+- (DYUserDynamicsTableView *)userDynamicsTableView{
+    if (_userDynamicsTableView == nil) {
+        _userDynamicsTableView = [[DYUserDynamicsTableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, self.scrollView.width, self.scrollView.height) style:UITableViewStylePlain];
+        _userDynamicsTableView.dynamicsDelegate = self;
+    }
+    return _userDynamicsTableView;
+}
+
+- (DYVideoListCollectionView *)userWorkVideoList{
+    if (_userWorkVideoList == nil) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+        layout.minimumLineSpacing = 1;
+        layout.minimumInteritemSpacing = 1;
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _userWorkVideoList = [[DYVideoListCollectionView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.width, self.scrollView.height) collectionViewLayout:layout];
+        _userWorkVideoList.backgroundColor = [UIColor clearColor];
+        _userWorkVideoList.videoListDelegate = self;
+    }
+    return _userWorkVideoList;
+}
+
+- (DYVideoListCollectionView *)userLikeVideoList{
+    if (_userLikeVideoList == nil) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+        layout.minimumLineSpacing = 1;
+        layout.minimumInteritemSpacing = 1;
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _userLikeVideoList = [[DYVideoListCollectionView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, self.scrollView.width, self.scrollView.height) collectionViewLayout:layout];
+        _userLikeVideoList.backgroundColor = [UIColor clearColor];
+        _userLikeVideoList.videoListDelegate = self;
+    }
+    return _userLikeVideoList;
 }
 
 

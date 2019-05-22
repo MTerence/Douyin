@@ -7,5 +7,6 @@ platform :ios, 9.0
     pod 'SDWebImage',               '~> 4.4.3'
     pod 'YYText',                   '~> 1.0.7'
     pod 'GKPageScrollView',         '~> 1.2.4'
-
+    pod 'MJRefresh',                '~> 3.1.15.7'
+    pod 'MJExtension',              '~> 3.0.15'
 end
