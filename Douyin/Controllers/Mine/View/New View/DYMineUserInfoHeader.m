@@ -127,9 +127,7 @@
     self.followNumLabel.text = @"7关注";
     self.fansNumLabel.text = @"1024粉丝";
     
-    self.likedNumLabel.attributedText = [DYTools attributeTextWithStrings:@[@"31",@" 获赞"] colors:@[[UIColor colorWithR:255 g:255 b:255 a:1],[UIColor colorWithR:143 g:145 b:151 a:1]] fonts:@[DYFONT(kFont_PingFangSC_Medium, [UIFont DY_FontSize:16]), DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:14])]];
-    self.followNumLabel.attributedText = [DYTools attributeTextWithStrings:@[@"7",@" 关注"] colors:@[[UIColor colorWithR:255 g:255 b:255 a:1],[UIColor colorWithR:143 g:145 b:151 a:1]] fonts:@[DYFONT(kFont_PingFangSC_Medium, [UIFont DY_FontSize:16]), DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:14])]];
-    self.fansNumLabel.attributedText = [DYTools attributeTextWithStrings:@[@"1024",@" 粉丝"] colors:@[[UIColor colorWithR:255 g:255 b:255 a:1],[UIColor colorWithR:143 g:145 b:151 a:1]] fonts:@[DYFONT(kFont_PingFangSC_Medium, [UIFont DY_FontSize:16]), DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:14])]];
+
 }
 
 - (void)setupConstrains{
@@ -286,7 +284,6 @@
         _avatar.contentMode = UIViewContentModeScaleAspectFill;
         _avatar.backgroundColor = [UIColor lightGrayColor];
         _avatar.layer.masksToBounds = true;
-        
     }
     return _avatar;
 }
@@ -357,7 +354,7 @@
         [_ageGenderBtn setTitleColor:[UIColor colorWithR:143 g:145 b:151 a:1] forState:UIControlStateNormal];
         [_ageGenderBtn setTitle:@"26岁" forState:UIControlStateNormal];
         _ageGenderBtn.titleLabel.font = DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:12]);
-        [_ageGenderBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_ageGenderBtn setImagePosition:LXMImagePositionLeft spacing:3];
         _ageGenderBtn.layer.cornerRadius = 2;
     }
     return _ageGenderBtn;
@@ -431,6 +428,24 @@
         _segmentControl = [LXDSegmentControl segmentControlWithFrame:CGRectMake(0, self.height - kSegmentControlHeight, SCREEN_WIDTH, kSegmentControlHeight) configuration: configuration delegate: self];
     }
     return _segmentControl;
+}
+
+- (void)setUserModel:(DYUserModel *)userModel{
+    _userModel = userModel;
+    
+    self.nicknamelLabel.text = userModel.nickname;
+    self.userIdLabel.text = userModel.uid;
+    self.signLabel.text = userModel.signature;
+    
+    NSDateComponents *components = [DYTools compareTimeFromDate:userModel.birthday toTime:[NSDate date]];
+    [self.ageGenderBtn setTitle:[NSString stringWithFormat:@"%ld岁",(long)components.year] forState:UIControlStateNormal];
+    [self.ageGenderBtn setImage:[UIImage imageNamed: userModel.gender == 1 ? @"icon_boy_12x12_" :@"icon_girl_12x12_"] forState:UIControlStateNormal];
+    
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:userModel.avatar_thumb.url_list.firstObject]];
+    
+    self.likedNumLabel.attributedText = [DYTools attributeTextWithStrings:@[[NSString stringWithFormat:@"%ld",userModel.total_favorited],@" 获赞"] colors:@[[UIColor colorWithR:255 g:255 b:255 a:1],[UIColor colorWithR:143 g:145 b:151 a:1]] fonts:@[DYFONT(kFont_PingFangSC_Medium, [UIFont DY_FontSize:16]), DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:14])]];
+    self.followNumLabel.attributedText = [DYTools attributeTextWithStrings:@[[NSString stringWithFormat:@"%ld",userModel.following_count],@" 关注"] colors:@[[UIColor colorWithR:255 g:255 b:255 a:1],[UIColor colorWithR:143 g:145 b:151 a:1]] fonts:@[DYFONT(kFont_PingFangSC_Medium, [UIFont DY_FontSize:16]), DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:14])]];
+    self.fansNumLabel.attributedText = [DYTools attributeTextWithStrings:@[[NSString stringWithFormat:@"%ld", userModel.follower_count],@" 粉丝"] colors:@[[UIColor colorWithR:255 g:255 b:255 a:1],[UIColor colorWithR:143 g:145 b:151 a:1]] fonts:@[DYFONT(kFont_PingFangSC_Medium, [UIFont DY_FontSize:16]), DYFONT(kFont_PingFangSC_Light, [UIFont DY_FontSize:14])]];
 }
 
 

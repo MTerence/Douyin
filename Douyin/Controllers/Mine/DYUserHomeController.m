@@ -11,6 +11,10 @@
 #import "DYMineUserInfoHeader.h"
 #import "DYVideoListCollectionView.h"
 #import "DYUserDynamicsTableView.h"
+#import "DYUserModel.h"
+#import "DYAwemeModel.h"
+#import "DYUserResponse.h"
+#import "DYAwemeListResponse.h"
 
 //#define kHeaderViewHeight     DY_SCALE_WIDTH(470)
 //#define kSegmentControlHeight DY_SCALE_WIDTH(40)
@@ -25,21 +29,23 @@ DYUserDynamicsTableView,
 DYUserInfoHeaderDelegate>
 
 /** userInfoHader */
-@property (nonatomic, strong) DYMineUserInfoHeader *userInfoHeader;
+@property (nonatomic, strong) DYMineUserInfoHeader      *userInfoHeader;
 /** scrollView 纵向滑动的tableview和collectionview 上层*/
-@property (nonatomic, strong) DYMineContentScrollView *scrollView;
+@property (nonatomic, strong) DYMineContentScrollView   *scrollView;
 /** 个人作品listView */
 @property (nonatomic, strong) DYVideoListCollectionView *userWorkVideoList;
 /** 用户动态listView */
-@property (nonatomic, strong) DYUserDynamicsTableView *userDynamicsTableView;
+@property (nonatomic, strong) DYUserDynamicsTableView   *userDynamicsTableView;
 /** 用户喜欢的视频listView */
 @property (nonatomic, strong) DYVideoListCollectionView *userLikeVideoList;
 /** 个人作品Array */
-@property (nonatomic, strong) NSMutableArray *videosArray;
+@property (nonatomic, strong) NSMutableArray<DYAwemeModel *> *userWorkVideoArray;
 /** 个人动态Array */
 @property (nonatomic, strong) NSMutableArray *dynamicsArray;
 /** 个人喜欢视频Array */
 @property (nonatomic, strong) NSMutableArray *likeVideosArray;
+/** userModel */
+@property (nonatomic, strong) DYUserModel *userModel;
 
 @end
 
@@ -60,26 +66,38 @@ DYUserInfoHeaderDelegate>
     [self setupHeaderView];
     
     [self loadData_UserInfo];
+    [self loadData_UserWorkVideoList];
 }
 
 
 #pragma mark - 数据请求
 - (void)loadData_UserInfo{
+    
+    __weak typeof(self)weakSelf = self;
     NSDictionary *params = @{@"uid":@"97795069353"};
     [NetworkRequestTool GetWithURL:kURL_UserInfo params:params success:^(id  _Nonnull json) {
         NSLog(@"--json: %@",json);
+        DYUserResponse *response = [DYUserResponse mj_objectWithKeyValues:json];
+        
+        weakSelf.userModel = response.data;
+        weakSelf.userInfoHeader.userModel = weakSelf.userModel;
+        [weakSelf setTitle:weakSelf.userModel.nickname];
     } failure:^(NSError * _Nonnull error) {
-        NSLog(@"---error: %@",error);
+        
     }];
 }
 
 - (void)loadData_UserWorkVideoList{
+    __weak typeof(self)weakSelf = self;
     NSDictionary *params = @{@"page":@"1",@"size":@"10",@"uid":@"97795069353"};
     
     [NetworkRequestTool GetWithURL:kURL_UserWorkVideoList params:params success:^(id  _Nonnull json) {
         NSLog(@"--json: %@",json);
+        DYAwemeListResponse *response = [DYAwemeListResponse mj_objectWithKeyValues:json];
+        [weakSelf.userWorkVideoList.awemesArray addObjectsFromArray:response.data];
+        [weakSelf.userWorkVideoList refresh];
     } failure:^(NSError * _Nonnull error) {
-        NSLog(@"---error: %@",error);
+        
     }];
 }
 
@@ -254,5 +272,11 @@ DYUserInfoHeaderDelegate>
     return _userLikeVideoList;
 }
 
+- (NSMutableArray<DYAwemeModel *> *)userWorkVideoArray{
+    if (_userWorkVideoArray == nil) {
+        _userWorkVideoArray = [NSMutableArray array];
+    }
+    return _userWorkVideoArray;
+}
 
 @end

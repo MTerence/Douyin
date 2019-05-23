@@ -53,4 +53,31 @@
     
 }
 
+#pragma mark NSString转NSDate
++ (NSDate *)StringConvertToDate:(NSString *)string{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8]];//可能需要设置时区，此处设为东8即北京时间
+    format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    if (string.length <= 10) {
+        format.dateFormat = @"yyyy-MM-dd";
+    }
+    NSDate *date = [format dateFromString:string];
+    
+    return date;
+}
+
++ (NSDateComponents *)compareTimeFromDate:(NSString *)fromTime toTime:(NSDate *)toTime{
+    
+    // 将时间转换为date
+    NSDate *fromDate = [DYTools StringConvertToDate:fromTime];
+    
+    // 创建日历
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit type = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    // 利用日历对象比较两个时间的差值
+    NSDateComponents *cmps = [calendar components:type fromDate:fromDate toDate:toTime options:0];
+    
+    return cmps;
+}
+
 @end

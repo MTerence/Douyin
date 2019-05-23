@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYAwemeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DYVideoListCollectionView : UICollectionView
 
 @property (nonatomic, weak) id<DYVideoListCollectionViewDelegate>videoListDelegate;
+
+/** Awemes Array */
+@property (nonatomic, strong)NSMutableArray<DYAwemeModel *> *awemesArray;
+
+- (void)refresh;
 
 @end
 

@@ -32,6 +32,25 @@ NS_ASSUME_NONNULL_BEGIN
                                                 colors:(NSArray <UIColor *> *)colors
                                                  fonts:(NSArray <UIFont *>*)fonts;
 
+/**
+ *   NSString转NSDate
+ *
+ *  @param string  传入的NSString
+ *
+ *  @return 返回NSDate  2018-03-23 00:00:00
+ */
++ (NSDate *)StringConvertToDate:(NSString *)string;
+
+/**
+ *  获取时间差
+ *
+ *  @param fromTime 最后更新时间
+ *
+ *  @param toTime   当前时间
+ *  @return NSDateComponents 时间差
+ */
++ (NSDateComponents *)compareTimeFromDate:(NSString *)fromTime toTime:(NSDate *)toTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

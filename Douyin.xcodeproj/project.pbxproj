@@ -35,6 +35,13 @@
 		AB8EEEF322954B7900D07161 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEEF222954B7900D07161 /* NetworkTools.m */; };
 		AB8EEEF622954E3000D07161 /* NetworkRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEEF522954E3000D07161 /* NetworkRequestTool.m */; };
 		AB8EEF1722955EDE00D07161 /* DYUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF1622955EDE00D07161 /* DYUserModel.m */; };
+		AB8EEF1A22963F8D00D07161 /* DYBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF1922963F8D00D07161 /* DYBaseResponse.m */; };
+		AB8EEF1D2296535A00D07161 /* UIButton+LXMImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF1C2296535A00D07161 /* UIButton+LXMImagePosition.m */; };
+		AB8EEF20229685B700D07161 /* DYAwemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF1F229685B700D07161 /* DYAwemeModel.m */; };
+		AB8EEF232296894F00D07161 /* DYVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF222296894F00D07161 /* DYVideoModel.m */; };
+		AB8EEF26229695C400D07161 /* DYMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF25229695C400D07161 /* DYMusicModel.m */; };
+		AB8EEF292296A24200D07161 /* DYUserResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF282296A24200D07161 /* DYUserResponse.m */; };
+		AB8EEF2F2296A28000D07161 /* DYAwemeListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EEF2E2296A28000D07161 /* DYAwemeListResponse.m */; };
 		AB90375E22826BEF00BF3A6E /* UIView+DYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90375D22826BEF00BF3A6E /* UIView+DYFrame.m */; };
 		AB90376122826DB900BF3A6E /* DYVideoListCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90376022826DB900BF3A6E /* DYVideoListCollectionCell.m */; };
 		AB9921E82283C49C00D50263 /* LXDSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9921E32283C49B00D50263 /* LXDSegmentControl.m */; };
@@ -118,6 +125,20 @@
 		AB8EEEF522954E3000D07161 /* NetworkRequestTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkRequestTool.m; sourceTree = "<group>"; };
 		AB8EEF1522955EDE00D07161 /* DYUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYUserModel.h; sourceTree = "<group>"; };
 		AB8EEF1622955EDE00D07161 /* DYUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYUserModel.m; sourceTree = "<group>"; };
+		AB8EEF1822963F8D00D07161 /* DYBaseResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYBaseResponse.h; sourceTree = "<group>"; };
+		AB8EEF1922963F8D00D07161 /* DYBaseResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYBaseResponse.m; sourceTree = "<group>"; };
+		AB8EEF1B2296535700D07161 /* UIButton+LXMImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LXMImagePosition.h"; sourceTree = "<group>"; };
+		AB8EEF1C2296535A00D07161 /* UIButton+LXMImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LXMImagePosition.m"; sourceTree = "<group>"; };
+		AB8EEF1E229685B700D07161 /* DYAwemeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYAwemeModel.h; sourceTree = "<group>"; };
+		AB8EEF1F229685B700D07161 /* DYAwemeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAwemeModel.m; sourceTree = "<group>"; };
+		AB8EEF212296894F00D07161 /* DYVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYVideoModel.h; sourceTree = "<group>"; };
+		AB8EEF222296894F00D07161 /* DYVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYVideoModel.m; sourceTree = "<group>"; };
+		AB8EEF24229695C400D07161 /* DYMusicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMusicModel.h; sourceTree = "<group>"; };
+		AB8EEF25229695C400D07161 /* DYMusicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMusicModel.m; sourceTree = "<group>"; };
+		AB8EEF272296A24200D07161 /* DYUserResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYUserResponse.h; sourceTree = "<group>"; };
+		AB8EEF282296A24200D07161 /* DYUserResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYUserResponse.m; sourceTree = "<group>"; };
+		AB8EEF2D2296A28000D07161 /* DYAwemeListResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYAwemeListResponse.h; sourceTree = "<group>"; };
+		AB8EEF2E2296A28000D07161 /* DYAwemeListResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAwemeListResponse.m; sourceTree = "<group>"; };
 		AB90375C22826BEF00BF3A6E /* UIView+DYFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+DYFrame.h"; sourceTree = "<group>"; };
 		AB90375D22826BEF00BF3A6E /* UIView+DYFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+DYFrame.m"; sourceTree = "<group>"; };
 		AB90375F22826DB900BF3A6E /* DYVideoListCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYVideoListCollectionCell.h; sourceTree = "<group>"; };
@@ -198,6 +219,7 @@
 		AB21FB9B227FEA970096A59E /* Douyin */ = {
 			isa = PBXGroup;
 			children = (
+				AB8EEF302296AB3500D07161 /* Network */,
 				AB8EEF1422955ECC00D07161 /* Model */,
 				AB9921E12283C48600D50263 /* Externals */,
 				AB51F00A228056B70028C531 /* Category */,
@@ -250,10 +272,6 @@
 				AB2BA0D922819EF400E56992 /* DYGlobalMacro.h */,
 				AB83227B2282BBA00047FA9B /* DYTools.h */,
 				AB83227C2282BBA00047FA9B /* DYTools.m */,
-				AB8EEEF122954B7900D07161 /* NetworkTools.h */,
-				AB8EEEF222954B7900D07161 /* NetworkTools.m */,
-				AB8EEEF422954E3000D07161 /* NetworkRequestTool.h */,
-				AB8EEEF522954E3000D07161 /* NetworkRequestTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -366,6 +384,8 @@
 				AB2BA0DB22819F7900E56992 /* UIFont+DYFont.m */,
 				AB90375C22826BEF00BF3A6E /* UIView+DYFrame.h */,
 				AB90375D22826BEF00BF3A6E /* UIView+DYFrame.m */,
+				AB8EEF1B2296535700D07161 /* UIButton+LXMImagePosition.h */,
+				AB8EEF1C2296535A00D07161 /* UIButton+LXMImagePosition.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -375,8 +395,31 @@
 			children = (
 				AB8EEF1522955EDE00D07161 /* DYUserModel.h */,
 				AB8EEF1622955EDE00D07161 /* DYUserModel.m */,
+				AB8EEF1E229685B700D07161 /* DYAwemeModel.h */,
+				AB8EEF1F229685B700D07161 /* DYAwemeModel.m */,
+				AB8EEF212296894F00D07161 /* DYVideoModel.h */,
+				AB8EEF222296894F00D07161 /* DYVideoModel.m */,
+				AB8EEF24229695C400D07161 /* DYMusicModel.h */,
+				AB8EEF25229695C400D07161 /* DYMusicModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AB8EEF302296AB3500D07161 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AB8EEEF122954B7900D07161 /* NetworkTools.h */,
+				AB8EEEF222954B7900D07161 /* NetworkTools.m */,
+				AB8EEEF422954E3000D07161 /* NetworkRequestTool.h */,
+				AB8EEEF522954E3000D07161 /* NetworkRequestTool.m */,
+				AB8EEF1822963F8D00D07161 /* DYBaseResponse.h */,
+				AB8EEF1922963F8D00D07161 /* DYBaseResponse.m */,
+				AB8EEF272296A24200D07161 /* DYUserResponse.h */,
+				AB8EEF282296A24200D07161 /* DYUserResponse.m */,
+				AB8EEF2D2296A28000D07161 /* DYAwemeListResponse.h */,
+				AB8EEF2E2296A28000D07161 /* DYAwemeListResponse.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		AB9921E12283C48600D50263 /* Externals */ = {
@@ -579,16 +622,21 @@
 			files = (
 				AB90375E22826BEF00BF3A6E /* UIView+DYFrame.m in Sources */,
 				AB51EFF722804CAE0028C531 /* DYBaseViewController.m in Sources */,
+				AB8EEF1A22963F8D00D07161 /* DYBaseResponse.m in Sources */,
 				AB9921E92283C49C00D50263 /* LXDSegmentControlConfiguration.m in Sources */,
 				AB90376122826DB900BF3A6E /* DYVideoListCollectionCell.m in Sources */,
 				AB21FBAC227FEA990096A59E /* main.m in Sources */,
+				AB8EEF20229685B700D07161 /* DYAwemeModel.m in Sources */,
 				AB51EFFA22804CC50028C531 /* DYHomeViewController.m in Sources */,
 				AB2BC325228AD0B30029C403 /* DYUserDynamicsTableView.m in Sources */,
 				AB8EEEF322954B7900D07161 /* NetworkTools.m in Sources */,
 				AB51F00022804CEC0028C531 /* DYChatListViewController.m in Sources */,
 				AB51EFFD22804CD20028C531 /* DYFollowViewController.m in Sources */,
 				AB51F009228056880028C531 /* UIColor+DYColor.m in Sources */,
+				AB8EEF2F2296A28000D07161 /* DYAwemeListResponse.m in Sources */,
 				AB2BA0D22281866700E56992 /* CYLPlusButtonSubclass.m in Sources */,
+				AB8EEF292296A24200D07161 /* DYUserResponse.m in Sources */,
+				AB8EEF232296894F00D07161 /* DYVideoModel.m in Sources */,
 				AB2BC31D228AC86A0029C403 /* DYVideoListCollectionView.m in Sources */,
 				AB9921E82283C49C00D50263 /* LXDSegmentControl.m in Sources */,
 				AB8EEF1722955EDE00D07161 /* DYUserModel.m in Sources */,
@@ -598,6 +646,8 @@
 				AB318A67228529F300EB2896 /* DYMineContentScrollView.m in Sources */,
 				AB8EEEF622954E3000D07161 /* NetworkRequestTool.m in Sources */,
 				AB2BC328228AD1B40029C403 /* DYUserDynamicsTableCell.m in Sources */,
+				AB8EEF26229695C400D07161 /* DYMusicModel.m in Sources */,
+				AB8EEF1D2296535A00D07161 /* UIButton+LXMImagePosition.m in Sources */,
 				AB41542B228584E7006B11E5 /* DYMineUserInfoHeader.m in Sources */,
 				AB2BA0CC228184C900E56992 /* DYTabBarController.m in Sources */,
 				AB2BC31A228AC16B0029C403 /* DYVideoListCollectionHeader.m in Sources */,

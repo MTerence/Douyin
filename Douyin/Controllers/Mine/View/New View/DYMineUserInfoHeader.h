@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<DYUserInfoHeaderDelegate>userInfoDelegate;
 
+/** userModel setter刷新数据 */
+@property (nonatomic, strong) DYUserModel *userModel;
+
 @end
 
 NS_ASSUME_NONNULL_END
