@@ -20,33 +20,10 @@
 
 @interface DYVideoListCollectionView ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource>
 
+
 @end
 
 @implementation DYVideoListCollectionView
-
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-        layout.minimumLineSpacing = 1;
-        layout.minimumInteritemSpacing = 1;
-        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        
-        [self setCollectionViewLayout:layout];
-        self.dataSource = self;
-        self.delegate = self;
-        self.backgroundColor = [UIColor clearColor];
-        [self registerClass:[DYVideoListCollectionCell class] forCellWithReuseIdentifier:kVideoListCollectionCell];
-        [self registerClass:[DYVideoListCollectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kDYVideoListCollectionHeader];
-        
-        if (@available(iOS 11.0, *)) {
-            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            self.inputViewController.automaticallyAdjustsScrollViewInsets = NO;
-        }
-    }
-    return self;
-}
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
@@ -69,8 +46,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
     DYVideoListCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kVideoListCollectionCell forIndexPath:indexPath];
+    DYAwemeModel *awemeModel = [self.awemesArray objectAtIndex:indexPath.item];
+    [cell refreshData:awemeModel];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.videoListDelegate && [self.videoListDelegate respondsToSelector:@selector(delegate_videoList:didSelectItemAtIndexPath:)]) {
+        [self.videoListDelegate delegate_videoList:self didSelectItemAtIndexPath:indexPath];
+    }
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

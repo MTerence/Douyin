@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)delegate_videoList:(DYVideoListCollectionView *)videoList scrollDidScroll:(CGPoint)offset;
 
+- (void)delegate_videoList:(DYVideoListCollectionView *)videoList didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @interface DYVideoListCollectionView : UICollectionView

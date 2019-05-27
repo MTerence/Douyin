@@ -22,6 +22,12 @@
 		AB2BC31D228AC86A0029C403 /* DYVideoListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2BC31C228AC86A0029C403 /* DYVideoListCollectionView.m */; };
 		AB2BC325228AD0B30029C403 /* DYUserDynamicsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2BC324228AD0B30029C403 /* DYUserDynamicsTableView.m */; };
 		AB2BC328228AD1B40029C403 /* DYUserDynamicsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2BC327228AD1B40029C403 /* DYUserDynamicsTableCell.m */; };
+		AB30466A2297DAB6002944A7 /* DYAwemePlayListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3046692297DAB6002944A7 /* DYAwemePlayListController.m */; };
+		AB30466D2297DECB002944A7 /* DYAwemePlayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB30466C2297DECB002944A7 /* DYAwemePlayListCell.m */; };
+		AB30467D2297F896002944A7 /* DYCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB30467C2297F896002944A7 /* DYCacheTool.m */; };
+		AB304683229B9B16002944A7 /* NSString+CMString.m in Sources */ = {isa = PBXBuildFile; fileRef = AB304682229B9B16002944A7 /* NSString+CMString.m */; };
+		AB304686229BF01C002944A7 /* CMVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB304685229BF01C002944A7 /* CMVideoPlayer.m */; };
+		AB304689229BF0AC002944A7 /* CMVideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB304688229BF0AC002944A7 /* CMVideoPlayerManager.m */; };
 		AB318A67228529F300EB2896 /* DYMineContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB318A66228529F300EB2896 /* DYMineContentScrollView.m */; };
 		AB318A70228573A900EB2896 /* DYUserHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB318A6F228573A900EB2896 /* DYUserHomeController.m */; };
 		AB41542B228584E7006B11E5 /* DYMineUserInfoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB41542A228584E7006B11E5 /* DYMineUserInfoHeader.m */; };
@@ -99,6 +105,18 @@
 		AB2BC324228AD0B30029C403 /* DYUserDynamicsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYUserDynamicsTableView.m; sourceTree = "<group>"; };
 		AB2BC326228AD1B40029C403 /* DYUserDynamicsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYUserDynamicsTableCell.h; sourceTree = "<group>"; };
 		AB2BC327228AD1B40029C403 /* DYUserDynamicsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYUserDynamicsTableCell.m; sourceTree = "<group>"; };
+		AB3046682297DAB6002944A7 /* DYAwemePlayListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYAwemePlayListController.h; sourceTree = "<group>"; };
+		AB3046692297DAB6002944A7 /* DYAwemePlayListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAwemePlayListController.m; sourceTree = "<group>"; };
+		AB30466B2297DECB002944A7 /* DYAwemePlayListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYAwemePlayListCell.h; sourceTree = "<group>"; };
+		AB30466C2297DECB002944A7 /* DYAwemePlayListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAwemePlayListCell.m; sourceTree = "<group>"; };
+		AB30467B2297F896002944A7 /* DYCacheTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYCacheTool.h; sourceTree = "<group>"; };
+		AB30467C2297F896002944A7 /* DYCacheTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYCacheTool.m; sourceTree = "<group>"; };
+		AB304681229B9B16002944A7 /* NSString+CMString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+CMString.h"; sourceTree = "<group>"; };
+		AB304682229B9B16002944A7 /* NSString+CMString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+CMString.m"; sourceTree = "<group>"; };
+		AB304684229BF01C002944A7 /* CMVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMVideoPlayer.h; sourceTree = "<group>"; };
+		AB304685229BF01C002944A7 /* CMVideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMVideoPlayer.m; sourceTree = "<group>"; };
+		AB304687229BF0AC002944A7 /* CMVideoPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMVideoPlayerManager.h; sourceTree = "<group>"; };
+		AB304688229BF0AC002944A7 /* CMVideoPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMVideoPlayerManager.m; sourceTree = "<group>"; };
 		AB318A65228529F300EB2896 /* DYMineContentScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYMineContentScrollView.h; sourceTree = "<group>"; };
 		AB318A66228529F300EB2896 /* DYMineContentScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYMineContentScrollView.m; sourceTree = "<group>"; };
 		AB318A6E228573A900EB2896 /* DYUserHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYUserHomeController.h; sourceTree = "<group>"; };
@@ -256,6 +274,7 @@
 		AB21FBCE227FEC910096A59E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB30466E2297E356002944A7 /* VideoPlayer */,
 				AB51EFF422804C960028C531 /* Base */,
 				AB51EFF022804C120028C531 /* Home */,
 				AB51EFF122804C230028C531 /* Follow */,
@@ -279,7 +298,12 @@
 		AB2BA0DD2281AA1800E56992 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB318A64228529C600EB2896 /* New View */,
+				AB318A65228529F300EB2896 /* DYMineContentScrollView.h */,
+				AB318A66228529F300EB2896 /* DYMineContentScrollView.m */,
+				AB415429228584E7006B11E5 /* DYMineUserInfoHeader.h */,
+				AB41542A228584E7006B11E5 /* DYMineUserInfoHeader.m */,
+				AB2BC321228ACF970029C403 /* Dynamic */,
+				AB2BC322228ACFA20029C403 /* Video */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,17 +332,15 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
-		AB318A64228529C600EB2896 /* New View */ = {
+		AB30466E2297E356002944A7 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				AB2BC322228ACFA20029C403 /* Video */,
-				AB2BC321228ACF970029C403 /* Dynamic */,
-				AB318A65228529F300EB2896 /* DYMineContentScrollView.h */,
-				AB318A66228529F300EB2896 /* DYMineContentScrollView.m */,
-				AB415429228584E7006B11E5 /* DYMineUserInfoHeader.h */,
-				AB41542A228584E7006B11E5 /* DYMineUserInfoHeader.m */,
+				AB304684229BF01C002944A7 /* CMVideoPlayer.h */,
+				AB304685229BF01C002944A7 /* CMVideoPlayer.m */,
+				AB304687229BF0AC002944A7 /* CMVideoPlayerManager.h */,
+				AB304688229BF0AC002944A7 /* CMVideoPlayerManager.m */,
 			);
-			path = "New View";
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
 		AB51EFF022804C120028C531 /* Home */ = {
@@ -356,6 +378,10 @@
 				AB51F00222804D060028C531 /* DYMineViewController.m */,
 				AB318A6E228573A900EB2896 /* DYUserHomeController.h */,
 				AB318A6F228573A900EB2896 /* DYUserHomeController.m */,
+				AB3046682297DAB6002944A7 /* DYAwemePlayListController.h */,
+				AB3046692297DAB6002944A7 /* DYAwemePlayListController.m */,
+				AB30466B2297DECB002944A7 /* DYAwemePlayListCell.h */,
+				AB30466C2297DECB002944A7 /* DYAwemePlayListCell.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -386,6 +412,8 @@
 				AB90375D22826BEF00BF3A6E /* UIView+DYFrame.m */,
 				AB8EEF1B2296535700D07161 /* UIButton+LXMImagePosition.h */,
 				AB8EEF1C2296535A00D07161 /* UIButton+LXMImagePosition.m */,
+				AB304681229B9B16002944A7 /* NSString+CMString.h */,
+				AB304682229B9B16002944A7 /* NSString+CMString.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -412,6 +440,8 @@
 				AB8EEEF222954B7900D07161 /* NetworkTools.m */,
 				AB8EEEF422954E3000D07161 /* NetworkRequestTool.h */,
 				AB8EEEF522954E3000D07161 /* NetworkRequestTool.m */,
+				AB30467B2297F896002944A7 /* DYCacheTool.h */,
+				AB30467C2297F896002944A7 /* DYCacheTool.m */,
 				AB8EEF1822963F8D00D07161 /* DYBaseResponse.h */,
 				AB8EEF1922963F8D00D07161 /* DYBaseResponse.m */,
 				AB8EEF272296A24200D07161 /* DYUserResponse.h */,
@@ -620,11 +650,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB304683229B9B16002944A7 /* NSString+CMString.m in Sources */,
 				AB90375E22826BEF00BF3A6E /* UIView+DYFrame.m in Sources */,
 				AB51EFF722804CAE0028C531 /* DYBaseViewController.m in Sources */,
+				AB304686229BF01C002944A7 /* CMVideoPlayer.m in Sources */,
 				AB8EEF1A22963F8D00D07161 /* DYBaseResponse.m in Sources */,
 				AB9921E92283C49C00D50263 /* LXDSegmentControlConfiguration.m in Sources */,
 				AB90376122826DB900BF3A6E /* DYVideoListCollectionCell.m in Sources */,
+				AB304689229BF0AC002944A7 /* CMVideoPlayerManager.m in Sources */,
 				AB21FBAC227FEA990096A59E /* main.m in Sources */,
 				AB8EEF20229685B700D07161 /* DYAwemeModel.m in Sources */,
 				AB51EFFA22804CC50028C531 /* DYHomeViewController.m in Sources */,
@@ -632,13 +665,16 @@
 				AB8EEEF322954B7900D07161 /* NetworkTools.m in Sources */,
 				AB51F00022804CEC0028C531 /* DYChatListViewController.m in Sources */,
 				AB51EFFD22804CD20028C531 /* DYFollowViewController.m in Sources */,
+				AB30467D2297F896002944A7 /* DYCacheTool.m in Sources */,
 				AB51F009228056880028C531 /* UIColor+DYColor.m in Sources */,
 				AB8EEF2F2296A28000D07161 /* DYAwemeListResponse.m in Sources */,
+				AB30466D2297DECB002944A7 /* DYAwemePlayListCell.m in Sources */,
 				AB2BA0D22281866700E56992 /* CYLPlusButtonSubclass.m in Sources */,
 				AB8EEF292296A24200D07161 /* DYUserResponse.m in Sources */,
 				AB8EEF232296894F00D07161 /* DYVideoModel.m in Sources */,
 				AB2BC31D228AC86A0029C403 /* DYVideoListCollectionView.m in Sources */,
 				AB9921E82283C49C00D50263 /* LXDSegmentControl.m in Sources */,
+				AB30466A2297DAB6002944A7 /* DYAwemePlayListController.m in Sources */,
 				AB8EEF1722955EDE00D07161 /* DYUserModel.m in Sources */,
 				AB51F00322804D060028C531 /* DYMineViewController.m in Sources */,
 				AB318A70228573A900EB2896 /* DYUserHomeController.m in Sources */,

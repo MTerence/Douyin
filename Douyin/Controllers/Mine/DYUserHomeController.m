@@ -15,11 +15,11 @@
 #import "DYAwemeModel.h"
 #import "DYUserResponse.h"
 #import "DYAwemeListResponse.h"
+#import "DYAwemePlayListController.h"
 
-//#define kHeaderViewHeight     DY_SCALE_WIDTH(470)
-//#define kSegmentControlHeight DY_SCALE_WIDTH(40)
 #define itemWidth   (self.view.width/3.0f - 1)
 #define itemHeight  (itemWidth * 1.35f)
+//#define itemWidth   ((SCREEN_WIDTH - (CGFloat)(((NSInteger)(SCREEN_WIDTH)) % 3)) / 3.0f - 1.0f)
 
 @interface DYUserHomeController ()
 <UIScrollViewDelegate,
@@ -39,7 +39,7 @@ DYUserInfoHeaderDelegate>
 /** 用户喜欢的视频listView */
 @property (nonatomic, strong) DYVideoListCollectionView *userLikeVideoList;
 /** 个人作品Array */
-@property (nonatomic, strong) NSMutableArray<DYAwemeModel *> *userWorkVideoArray;
+@property (nonatomic, strong) NSMutableArray<DYAwemeModel *> *userWorkAwemeArray;
 /** 个人动态Array */
 @property (nonatomic, strong) NSMutableArray *dynamicsArray;
 /** 个人喜欢视频Array */
@@ -67,6 +67,8 @@ DYUserInfoHeaderDelegate>
     
     [self loadData_UserInfo];
     [self loadData_UserWorkVideoList];
+    
+//    CGFloat i =  (SCREEN_WIDTH - (CGFloat)(((NSInteger)(SCREEN_WIDTH)) % 3)) / 3.0f - 1.0f;
 }
 
 
@@ -94,7 +96,8 @@ DYUserInfoHeaderDelegate>
     [NetworkRequestTool GetWithURL:kURL_UserWorkVideoList params:params success:^(id  _Nonnull json) {
         NSLog(@"--json: %@",json);
         DYAwemeListResponse *response = [DYAwemeListResponse mj_objectWithKeyValues:json];
-        [weakSelf.userWorkVideoList.awemesArray addObjectsFromArray:response.data];
+        [weakSelf.userWorkAwemeArray addObjectsFromArray:response.data];
+        weakSelf.userWorkVideoList.awemesArray = weakSelf.userWorkAwemeArray;
         [weakSelf.userWorkVideoList refresh];
     } failure:^(NSError * _Nonnull error) {
         
@@ -216,6 +219,11 @@ DYUserInfoHeaderDelegate>
     [self scrollViewDidScroll:videoList];
 }
 
+- (void)delegate_videoList:(DYVideoListCollectionView *)videoList didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DYAwemePlayListController *vc = [[DYAwemePlayListController alloc]initWithVideoData:self.userWorkAwemeArray currentIndex:indexPath.item pageIndex:10 pageSize:10 uid:@""];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (void)delegate_dynamicsList:(DYUserDynamicsTableView *)dynamicsList scrollDidScroll:(CGPoint)offset{
     [self scrollViewDidScroll:dynamicsList];
 }
@@ -228,7 +236,7 @@ DYUserInfoHeaderDelegate>
         _scrollView.delaysContentTouches = NO;
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
-        _scrollView.backgroundColor = [UIColor redColor];
+        _scrollView.backgroundColor = [UIColor blackColor];
         _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH *3, 0);
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
@@ -272,11 +280,11 @@ DYUserInfoHeaderDelegate>
     return _userLikeVideoList;
 }
 
-- (NSMutableArray<DYAwemeModel *> *)userWorkVideoArray{
-    if (_userWorkVideoArray == nil) {
-        _userWorkVideoArray = [NSMutableArray array];
+- (NSMutableArray<DYAwemeModel *> *)userWorkAwemeArray{
+    if (_userWorkAwemeArray == nil) {
+        _userWorkAwemeArray = [NSMutableArray array];
     }
-    return _userWorkVideoArray;
+    return _userWorkAwemeArray;
 }
 
 @end

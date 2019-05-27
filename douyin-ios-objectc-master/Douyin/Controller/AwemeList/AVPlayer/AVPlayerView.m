@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSOperation          *queryCacheOperation;    //查找本地视频缓存数据的NSOperation
 @property (nonatomic, strong) dispatch_queue_t     cancelLoadingQueue;
 
-@property (nonatomic, strong) WebCombineOperation  *combineOperation;
+@property (nonatomic, strong)WebCombineOperation  *combineOperation;
 
 @property (nonatomic, assign) BOOL                 retried;
 @end
