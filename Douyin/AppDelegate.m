@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "CYLPlusButtonSubclass.h"
 #import "DYMainRootViewController.h"
+#import "CMVideoPlayerManager.h"
+//#import "AVPlayerManager.h"
 
 @interface AppDelegate ()<CYLTabBarControllerDelegate>
 
@@ -32,7 +34,8 @@
     DYMainRootViewController *rootViewController = [[DYMainRootViewController alloc] init];
     [self.window setRootViewController:rootViewController];
     [self setUpNavigationBarAppearance];
-    
+//    [AVPlayerManager setAudioMode];
+    [CMVideoPlayerManager setAudioModel];
     return YES;
 }
 

@@ -45,6 +45,11 @@ NSString *const kURL_UserInfo           = @"user";
         if (failure) {
             failure(error);
         }
+        
+        NSString *path = task.originalRequest.URL.path;
+        if ([path containsString:kURL_UserWorkVideoList]) {
+            success([DYTools readJsonFile:@"awemes"]);
+        }
     }];
 }
 

@@ -58,7 +58,7 @@ NSString *const FindComentByPagePath = @"comment/list";
     static AFHTTPSessionManager *manager;
     dispatch_once(&once, ^{
         manager = [AFHTTPSessionManager manager];
-        manager.requestSerializer.timeoutInterval = 15.0f;
+        manager.requestSerializer.timeoutInterval = 10.0f;
         
     });
     return manager;

@@ -51,6 +51,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSDateComponents *)compareTimeFromDate:(NSString *)fromTime toTime:(NSDate *)toTime;
 
+
+/**
+ 读取本地Json文件
+
+ @param fileName json文件名
+ @return json
+ */
++ (NSDictionary *)readJsonFile:(NSString *)fileName;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -83,9 +83,9 @@
     }
     return self;
 }
-//根据Key值从内存和本地磁盘中查询缓存数据
-- (NSOperation *)queryDataFromeDisk:(NSString *)key
-           cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock{
+
+//根据key值从内存和本地磁盘中查询缓存数据
+- (NSOperation *)queryDataFromMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock{
     return [self queryDataFromMemory:key cacheQueryCompletedBlock:cacheQueryCompletedBlock extension:nil];
 }
 
@@ -112,6 +112,30 @@
             cacheQueryCompletedBlock(data, YES);
         }else{
             cacheQueryCompletedBlock(nil, NO);
+        }
+    });
+    
+    return operation;
+}
+
+//根据Key值从本地磁盘中查询缓存数据
+- (NSOperation *)queryURLFromeDiskMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock{
+    return [self queryURLFromDiskMemory:key cacheQueryCompletedBlock:cacheQueryCompletedBlock extension:nil];
+}
+
+//根据key值从本地磁盘中查询缓存数据，所查询缓存数据包含指定文件类型
+- (NSOperation *)queryURLFromDiskMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock extension:(NSString *)extension{
+    NSOperation *operation = [NSOperation new];
+    dispatch_async(_ioQueue, ^{
+        if (operation.isCancelled) {
+            return;
+        }
+        
+        NSString *path = [self diskCachePathForKey:key extension:extension];
+        if ([self.fileManager fileExistsAtPath:path]) {
+            cacheQueryCompletedBlock(path, YES);
+        }else{
+            cacheQueryCompletedBlock(path, NO);
         }
     });
     

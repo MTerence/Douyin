@@ -18,7 +18,7 @@ typedef void(^WebCacheQueryCompletedBlock)(id data, BOOL hasCache);
 typedef void(^WebDownloaderResponseBlock)(NSHTTPURLResponse *response);
 
 //网络资源下载进度的回调block
-typedef void(^WebDownloaderProgressBlock)(NSInteger receivedSize);
+typedef void(^WebDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize, NSData *data);
 
 //网络资源下载完毕后的回调block
 typedef void(^WebDownloaderCompletedBlock)(NSData *data, NSError *error, BOOL finished);
@@ -50,13 +50,13 @@ typedef void(^WebDownloaderCancelBlock)(void);
 - (NSOperation *)queryDataFromMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock;
 
 //根据key值从本地磁盘中查询缓存数据
-- (NSOperation *)queryDataFromeDisk:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock;
+- (NSOperation *)queryURLFromeDiskMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock;
 
 //根据key值从内存和本地磁盘中查询缓存数据，所查询缓存数据包含指定文件类型
 - (NSOperation *)queryDataFromMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock extension:(NSString *)extension;
 
 //根据key值从本地磁盘中查询缓存数据，所查询数据包含指定文件类型
-- (NSOperation *)queryURLFromDisk:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock extension:(NSString *)extension;
+- (NSOperation *)queryURLFromDiskMemory:(NSString *)key cacheQueryCompletedBlock:(WebCacheQueryCompletedBlock)cacheQueryCompletedBlock extension:(NSString *)extension;
 
 //存储缓存数据到内存和本地磁盘
 - (void)storeDataCache:(NSData *)data forKey:(NSString *)key;

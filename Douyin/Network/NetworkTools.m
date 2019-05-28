@@ -29,7 +29,7 @@
         
         //设置超时时间
         [self.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-        self.requestSerializer.timeoutInterval = 30;
+        self.requestSerializer.timeoutInterval = 5;
         [self.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         
         self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/plain",@"text/html", nil];

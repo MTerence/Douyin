@@ -39,7 +39,6 @@
 		3B00F265210EDD7900E99DE5 /* GroupChatListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F264210EDD7900E99DE5 /* GroupChatListResponse.m */; };
 		3B00F268210EDDA900E99DE5 /* CommentResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F267210EDDA900E99DE5 /* CommentResponse.m */; };
 		3B00F26B210EDDC500E99DE5 /* CommentListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F26A210EDDC500E99DE5 /* CommentListResponse.m */; };
-		3B00F26E210EDE7100E99DE5 /* NetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F26D210EDE7100E99DE5 /* NetworkHelper.m */; };
 		3B00F271210EDE8D00E99DE5 /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F270210EDE8D00E99DE5 /* WebSocketManager.m */; };
 		3B00F274210EDEA700E99DE5 /* WebCacheHelpler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F273210EDEA700E99DE5 /* WebCacheHelpler.m */; };
 		3B00F278210EDF3100E99DE5 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F277210EDF3100E99DE5 /* BaseModel.m */; };
@@ -97,6 +96,7 @@
 		3B963800215CA88300B2D6B8 /* CADisplayLink+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9637FF215CA88300B2D6B8 /* CADisplayLink+Tool.m */; };
 		3BF54F8C210F44B9008899F0 /* favorites.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BF54F8B210F44B9008899F0 /* favorites.json */; };
 		3BF54F93210F4D5C008899F0 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BF54F92210F4D5C008899F0 /* user.json */; };
+		AB3046A3229D41B6002944A7 /* NetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3046A1229D41B5002944A7 /* NetworkHelper.m */; };
 		E33BFBBB8F3FAC5885446FD1 /* libPods-Douyin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 788D7E6A99957B05CD68E556 /* libPods-Douyin.a */; };
 /* End PBXBuildFile section */
 
@@ -164,8 +164,6 @@
 		3B00F267210EDDA900E99DE5 /* CommentResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentResponse.m; sourceTree = "<group>"; };
 		3B00F269210EDDB900E99DE5 /* CommentListResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentListResponse.h; sourceTree = "<group>"; };
 		3B00F26A210EDDC500E99DE5 /* CommentListResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentListResponse.m; sourceTree = "<group>"; };
-		3B00F26C210EDE6300E99DE5 /* NetworkHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
-		3B00F26D210EDE7100E99DE5 /* NetworkHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkHelper.m; sourceTree = "<group>"; };
 		3B00F26F210EDE8200E99DE5 /* WebSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
 		3B00F270210EDE8D00E99DE5 /* WebSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
 		3B00F272210EDE9C00E99DE5 /* WebCacheHelpler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebCacheHelpler.h; sourceTree = "<group>"; };
@@ -277,6 +275,8 @@
 		70671669E659B6CCC077AFBD /* Pods-Douyin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douyin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Douyin/Pods-Douyin.debug.xcconfig"; sourceTree = "<group>"; };
 		788D7E6A99957B05CD68E556 /* libPods-Douyin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Douyin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEEF714730F86EBDB840A5B /* Pods-Douyin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douyin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Douyin/Pods-Douyin.release.xcconfig"; sourceTree = "<group>"; };
+		AB3046A1229D41B5002944A7 /* NetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHelper.m; sourceTree = "<group>"; };
+		AB3046A2229D41B6002944A7 /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,8 +343,8 @@
 			children = (
 				3B00F22E210EDA2F00E99DE5 /* HttpRequest */,
 				3B00F22F210EDA3400E99DE5 /* HttpResponse */,
-				3B00F26C210EDE6300E99DE5 /* NetworkHelper.h */,
-				3B00F26D210EDE7100E99DE5 /* NetworkHelper.m */,
+				AB3046A2229D41B6002944A7 /* NetworkHelper.h */,
+				AB3046A1229D41B5002944A7 /* NetworkHelper.m */,
 				3B00F26F210EDE8200E99DE5 /* WebSocketManager.h */,
 				3B00F270210EDE8D00E99DE5 /* WebSocketManager.m */,
 				3B00F272210EDE9C00E99DE5 /* WebCacheHelpler.h */,
@@ -728,13 +728,13 @@
 				3B00F247210EDB7200E99DE5 /* GroupChatListRequest.m in Sources */,
 				3B00F29B210EE17C00E99DE5 /* ScaleDismissAnimation.m in Sources */,
 				3B00F262210EDD5F00E99DE5 /* GroupChatResponse.m in Sources */,
-				3B00F26E210EDE7100E99DE5 /* NetworkHelper.m in Sources */,
 				3B00F29E210EE19400E99DE5 /* SwipeLeftInteractiveTransition.m in Sources */,
 				3B00F274210EDEA700E99DE5 /* WebCacheHelpler.m in Sources */,
 				3B00F2DE210EE59B00E99DE5 /* HoverTextView.m in Sources */,
 				3B00F2A1210EE1EC00E99DE5 /* BaseViewController.m in Sources */,
 				3B00F244210EDB3100E99DE5 /* DeleteGroupChatRequest.m in Sources */,
 				3B00F229210ED90800E99DE5 /* UIImageView+WebCache.m in Sources */,
+				AB3046A3229D41B6002944A7 /* NetworkHelper.m in Sources */,
 				3B00F2A4210EE20900E99DE5 /* RefreshControl.m in Sources */,
 				3B00F223210ED8CF00E99DE5 /* NSNotification+Extension.m in Sources */,
 				3B00F2F9210EE78F00E99DE5 /* AwemeCollectionCell.m in Sources */,

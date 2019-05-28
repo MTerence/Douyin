@@ -29,9 +29,9 @@
 }
 
 - (NSURL *)urlScheme:(NSString *)scheme{
-    NSURLComponents *components = [[NSURLComponents alloc]initWithURL:[NSURL URLWithString:scheme] resolvingAgainstBaseURL:NO];
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:self] resolvingAgainstBaseURL:NO];
     components.scheme = scheme;
-    return [components scheme];
+    return [components URL];
 }
 
 @end

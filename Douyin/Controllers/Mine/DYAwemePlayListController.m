@@ -53,9 +53,12 @@ NSString *const kDYAwemePlayListCell = @"DYAwemePlayListCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DYAwemePlayListCell *cell = [tableView dequeueReusableCellWithIdentifier:kDYAwemePlayListCell];
-    if (cell == nil) {
-        cell = [[DYAwemePlayListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kDYAwemePlayListCell];
-    }
+//    if (cell == nil) {
+//        cell = [[DYAwemePlayListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kDYAwemePlayListCell];
+//    }
+    
+    [cell initData:self.awemesArray[indexPath.row]];
+    [cell startDownloadBackgroundTask];
     
     return cell;
 }

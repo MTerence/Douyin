@@ -507,7 +507,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 
 - (void)startDownloadHighPriorityTask {
     NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
-    [_playerView startDownloadTask:[[NSURL alloc] initWithString:playUrl] isBackground:NO];
+    //[_playerView startDownloadTask:[[NSURL alloc] initWithString:playUrl] isBackground:NO];
 }
 
 @end

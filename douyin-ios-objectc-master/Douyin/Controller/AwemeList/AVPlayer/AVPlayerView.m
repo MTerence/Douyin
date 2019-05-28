@@ -7,8 +7,9 @@
 //
 
 #import "AVPlayerView.h"
-#import "NetworkHelper.h"
+//#import "NetworkHelper.h"
 #import "AVPlayerManager.h"
+#import "WebCacheHelpler.h"
 
 @interface AVPlayerView () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate,  AVAssetResourceLoaderDelegate>
 @property (nonatomic ,strong) NSURL                *sourceURL;              //视频路径
@@ -28,7 +29,7 @@
 @property (nonatomic, strong) NSOperation          *queryCacheOperation;    //查找本地视频缓存数据的NSOperation
 @property (nonatomic, strong) dispatch_queue_t     cancelLoadingQueue;
 
-@property (nonatomic, strong)WebCombineOperation  *combineOperation;
+@property (nonatomic, strong) WebCombineOperation  *combineOperation;
 
 @property (nonatomic, assign) BOOL                 retried;
 @end
